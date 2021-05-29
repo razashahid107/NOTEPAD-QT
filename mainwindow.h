@@ -1,5 +1,18 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <iomanip>
+#include <stdlib.h>
+#include <conio.h>
+#include <windows.h>
+#include <QMessageBox>
+#include "Login.cpp"
+
+using namespace std;
+
 
 #include <QMainWindow>
 
@@ -14,6 +27,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private slots:
+    void on_pushButton_Login_clicked();
 
 private:
     Ui::MainWindow *ui;
