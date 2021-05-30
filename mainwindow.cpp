@@ -25,7 +25,16 @@ void MainWindow::on_pushButton_Login_clicked()
 
     Login obj(str_email, str_password);
 
+}
 
 
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    hide();
+    Signup *ui2;
+    ui2 = new Signup(this);
+    ui2->show();
 }
 

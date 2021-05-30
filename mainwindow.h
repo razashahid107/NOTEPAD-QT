@@ -2,13 +2,15 @@
 #define MAINWINDOW_H
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <cstring>
 #include <vector>
 #include <iomanip>
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
+#include <fstream>
 #include <QMessageBox>
+#include "signup.h"
 #include "Login.cpp"
 
 using namespace std;
@@ -30,6 +32,8 @@ public:
 
 private slots:
     void on_pushButton_Login_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
