@@ -10,7 +10,7 @@
 #include <windows.h>
 #include <fstream>
 #include <QMessageBox>
-#include "signup.h"
+#include "register.h"
 #include "Login.cpp"
 
 using namespace std;

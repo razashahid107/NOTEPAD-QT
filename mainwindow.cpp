@@ -33,8 +33,8 @@ void MainWindow::on_pushButton_Login_clicked()
 void MainWindow::on_pushButton_clicked()
 {
     hide();
-    Signup *ui2;
-    ui2 = new Signup(this);
+    Register *ui2;
+    ui2 = new Register(this);
     ui2->show();
 }
 

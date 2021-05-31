@@ -1,39 +1,36 @@
-#include "signup.h"
-#include "ui_signup.h"
-#include <fstream>
-#include <QDebug>
-Signup::Signup(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Signup)
+#include "register.h"
+#include "ui_register.h"
+
+Register::Register(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::Register)
 {
     ui->setupUi(this);
 }
 
-Signup::~Signup()
+Register::~Register()
 {
     delete ui;
 }
 
-void Signup::on_pushButton_clicked()
+void Register::on_Registerbutton_clicked()
 {
     QString qfname, qsname, qemail, qpassword, qconfirmpassword;
-    qfname = ui->qtfName->text();
-    qsname = ui->qtsName->text();
-    qemail = ui->qtEmail->text();
-    qpassword = ui->qtPassword->text();
-    qconfirmpassword = ui->qtconPassword->text();
+    qfname = ui->qtfirstname->text();
+    qsname = ui->qtsecondname->text();
+    qemail = ui->qtemail->text();
+    qpassword = ui->qtpassword->text();
+    qconfirmpassword = ui->qtconfirmpassword->text();
     //email = ui->secName->text();
     string fname =qfname.toStdString();
     string sname =qsname.toStdString();
     string email =qemail.toStdString();
     string password =qpassword.toStdString();
     string confirmpassword= qconfirmpassword.toStdString();
-    QMessageBox msg2;
-    new_entry(fname, sname, email, password, confirmpassword);
     fsave();
 }
 
-string Signup::encr(string str){
+string Register::encr(string str){
     int code, count = 0;
     vector<int> veccode {};
     int length = str.size();
@@ -65,13 +62,11 @@ string Signup::encr(string str){
     return f_str;
 }
 
-void Signup::fsave(){
+void Register::fsave(){
     ofstream myfile;
     myfile.open("credentials.csv");
     myfile << encr(first_name) << ',' << encr(second_name) << ',' << encr(Email) << ',' << encr(Password) << ',' << encr(con_Password); //<< ',' << month_birth << ','
     //<< year_birth;
     myfile.close();
  }
-
-
 
