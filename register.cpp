@@ -1,3 +1,4 @@
+#include <functions.h>
 #include "register.h"
 #include "ui_register.h"
 
@@ -6,6 +7,7 @@ Register::Register(QWidget *parent) :
     ui(new Ui::Register)
 {
     ui->setupUi(this);
+    connect(ui->Registerbutton, SIGNAL(clicked()), this, SLOT(on_Registerbutton_clicked()));
 }
 
 Register::~Register()
@@ -15,18 +17,20 @@ Register::~Register()
 
 void Register::on_Registerbutton_clicked()
 {
-    QString qfname, qsname, qemail, qpassword, qconfirmpassword;
-    qfname = ui->qtfirstname->text();
-    qsname = ui->qtsecondname->text();
-    qemail = ui->qtemail->text();
-    qpassword = ui->qtpassword->text();
-    qconfirmpassword = ui->qtconfirmpassword->text();
+    QMessageBox msg;
+    msg.setText("yahan tuk tou theek hay");
+    QString qfname = ui->qtfirstname->text();
+    QString qsname = ui->qtsecondname->text();
+    QString qemail = ui->qtemail->text();
+    QString qpassword = ui->qtpassword->text();
+    QString qconfirmpassword = ui->qtconfirmpassword->text();
     //email = ui->secName->text();
     string fname =qfname.toStdString();
     string sname =qsname.toStdString();
     string email =qemail.toStdString();
     string password =qpassword.toStdString();
     string confirmpassword= qconfirmpassword.toStdString();
+    email_checker(email);
     fsave();
 }
 

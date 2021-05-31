@@ -15,6 +15,7 @@ SOURCES += \
     register.cpp
 
 HEADERS += \
+    functions.h \
     mainwindow.h \
     register.h
 
