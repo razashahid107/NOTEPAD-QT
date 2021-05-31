@@ -1,5 +1,6 @@
-#ifndef FUNCTIONS_H
-#define FUNCTIONS_H
+// #ifndef FUNCTIONS_H
+// #define FUNCTIONS_H
+#pragma once
 #include "mainwindow.h"
 using namespace std;
 
@@ -48,4 +49,4 @@ bool email_checker(string email)
         return false;
     }
 }
-#endif // FUNCTIONS_H
+// #endif // FUNCTIONS_H
