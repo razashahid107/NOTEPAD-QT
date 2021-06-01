@@ -25,12 +25,11 @@ private:
 
 public:
     explicit Register(QWidget *parent = nullptr);
-    void fsave();
-    string encr(string str);
     ~Register();
 
 private slots:
-    void on_Registerbutton_clicked();
+
+    void on_Register_button_clicked();
 
 private:
     Ui::Register *ui;

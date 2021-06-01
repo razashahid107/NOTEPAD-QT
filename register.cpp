@@ -1,19 +1,25 @@
 #include <functions.h>
 #include "register.h"
 #include "ui_register.h"
+#include "functions.h"
 
 Register::Register(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Register)
 {
     ui->setupUi(this);
-    connect(ui->Registerbutton, SIGNAL(clicked()), this, SLOT(on_Registerbutton_clicked()));
+    connect(ui->Register_button, SIGNAL(clicked()), this, SLOT(on_Register_button_clicked()));
     ui->label->setStyleSheet("border: 1px solid white;");
     ui->label_2->setStyleSheet("border: 1px solid white;");
     ui->label_3->setStyleSheet("border: 1px solid white;");
     ui->label_4->setStyleSheet("border: 1px solid white;");
     ui->label_5->setStyleSheet("border: 1px solid white;");
     ui->label_6->setStyleSheet("border: 1px solid white;");
+    ui->qtfirstname->setPlaceholderText("First Name");
+    ui->qtsecondname->setPlaceholderText("Second Name");
+    ui->qtemail->setPlaceholderText("Email");
+    ui->qtpassword->setPlaceholderText("Password");
+    ui->qtconfirmpassword->setPlaceholderText("Confirm Password");
 }
 
 Register::~Register()
@@ -21,10 +27,8 @@ Register::~Register()
     delete ui;
 }
 
-void Register::on_Registerbutton_clicked()
+void Register::on_Register_button_clicked()
 {
-    QMessageBox msg;
-    msg.setText("yahan tuk tou theek hay");
     QString qfname = ui->qtfirstname->text();
     QString qsname = ui->qtsecondname->text();
     QString qemail = ui->qtemail->text();
@@ -36,47 +40,18 @@ void Register::on_Registerbutton_clicked()
     string email =qemail.toStdString();
     string password =qpassword.toStdString();
     string confirmpassword= qconfirmpassword.toStdString();
-    email_checker(email);
-    fsave();
+    if (password != confirmpassword){
+        QMessageBox msgBox;
+        msgBox.setText("Password mis-match");
+        msgBox.exec();
+    }
+    if (!(email_checker(email))){
+        QMessageBox msgBox;
+        msgBox.setText("Re-Enter Email");
+        msgBox.exec();
+    }
+    Save_DataBase(fname, sname, email, password);
 }
 
-string Register::encr(string str){
-    int code, count = 0;
-    vector<int> veccode {};
-    int length = str.size();
-    char ch[length +1];
-    vector<char> vecstr {};
-    vector<char> vecenc {};
-    strcpy(ch, str.c_str());
 
-    for (int i = 0; i < length; i++){
-        vecstr.push_back(ch[i]);
-    }
-
-    for (int i = 0; i < vecstr.size(); i++){
-        code = (int)vecstr[i];
-        if (code < 38){
-            veccode.push_back('f');
-            veccode.push_back('#');
-            veccode.push_back('f');
-            veccode.push_back(code);
-            count++;
-        }
-        else
-        veccode.push_back(code - 5 );
-    }
-    for (int i = 0; i < vecstr.size() + count * 3; i++){
-        vecenc.push_back((char)veccode[i]);
-    }
-    string f_str(vecenc.begin(), vecenc.end());
-    return f_str;
-}
-
-void Register::fsave(){
-    ofstream myfile;
-    myfile.open("credentials.csv");
-    myfile << encr(first_name) << ',' << encr(second_name) << ',' << encr(Email) << ',' << encr(Password) << ',' << encr(con_Password); //<< ',' << month_birth << ','
-    //<< year_birth;
-    myfile.close();
- }
 

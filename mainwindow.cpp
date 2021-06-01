@@ -7,8 +7,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     //this->setWindowState(Qt::WindowMaximized);
-    ui->label_Email->setStyleSheet("border: 1px solid white;");
-    ui->label_Password->setStyleSheet("border: 1px solid white;");
+    //ui->label_Email->setStyleSheet("border: 1px solid white;");
+    //ui->label_Password->setStyleSheet("border: 1px solid white;");
+    ui->groupBox->setPalette(QPalette(Qt::white));
+    ui->lineEdit_email->setPlaceholderText("Email");
+    ui->lineEdit_Password->setPlaceholderText("Password");
 }
 
 MainWindow::~MainWindow()
