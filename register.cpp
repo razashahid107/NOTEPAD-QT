@@ -8,6 +8,12 @@ Register::Register(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->Registerbutton, SIGNAL(clicked()), this, SLOT(on_Registerbutton_clicked()));
+    ui->label->setStyleSheet("border: 1px solid white;");
+    ui->label_2->setStyleSheet("border: 1px solid white;");
+    ui->label_3->setStyleSheet("border: 1px solid white;");
+    ui->label_4->setStyleSheet("border: 1px solid white;");
+    ui->label_5->setStyleSheet("border: 1px solid white;");
+    ui->label_6->setStyleSheet("border: 1px solid white;");
 }
 
 Register::~Register()

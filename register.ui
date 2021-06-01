@@ -27,7 +27,7 @@
        </size>
       </property>
       <property name="title">
-       <string>GroupBox</string>
+       <string>SignUp</string>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
@@ -181,7 +181,7 @@
            <item>
             <widget class="QDateEdit" name="dob">
              <property name="styleSheet">
-              <string notr="true"/>
+              <string notr="true">color: rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>

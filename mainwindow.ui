@@ -106,7 +106,9 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: rgb(255, 255, 255);</string>
+          <string notr="true">color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);
+selection-background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
           <string>Email</string>

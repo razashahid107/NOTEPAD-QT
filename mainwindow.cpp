@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     //this->setWindowState(Qt::WindowMaximized);
+    ui->label_Email->setStyleSheet("border: 1px solid white;");
+    ui->label_Password->setStyleSheet("border: 1px solid white;");
 }
 
 MainWindow::~MainWindow()
