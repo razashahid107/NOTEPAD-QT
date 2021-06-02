@@ -84,7 +84,7 @@ string encr(string str){
     return f_str;
 }
 
-void Save_DataBase(string F_name, string L_name, string EMail, string password)
+void Save_DataBase(string EMail, string password, string F_name, string L_name)
 {
     // file pointer
     fstream fout;
@@ -92,14 +92,13 @@ void Save_DataBase(string F_name, string L_name, string EMail, string password)
     // opens an existing csv file or creates a new file.
     fout.open("credentials.csv", ios::out | ios::app);
 
-    int i, roll, phy, chem, math, bio;
     string name;
 
     // Insert the data to file
-    fout << F_name << ", "
+    fout << EMail << ", "
+         << password << ", "
+         << F_name << ", "
          << L_name << ", "
-         << EMail << ", "
-         << password
          << "\n";
 }
 // #endif // FUNCTIONS_H
