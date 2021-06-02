@@ -12,10 +12,14 @@
 
 //   string name;
 
-//    // Insert the data to file
-//    fout << F_name << ", "
-//         << L_name << ", "
-//         << EMail << ", "
-//         << password
-//         << "\n";
-//}
+//   // Insert the data to file
+//   fout << F_name << ", "
+//        << L_name << ", "
+//        << EMail << ", "
+//        << password
+//        << "\n";
+// }
+
+// int main(){
+//    Save_DataBase("Abdur Rehman", "sahid", "razashhaid", "hello world");
+// }
