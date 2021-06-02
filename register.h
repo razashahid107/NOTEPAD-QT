@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "mainwindow.h"
+
 using namespace std;
 
 namespace Ui {
@@ -25,6 +26,7 @@ private:
 
 public:
     explicit Register(QWidget *parent = nullptr);
+
     ~Register();
 
 private slots:

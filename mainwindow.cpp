@@ -19,8 +19,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
 void MainWindow::on_pushButton_Login_clicked()
 {
     QString Email = ui -> lineEdit_email -> text();
@@ -32,9 +30,6 @@ void MainWindow::on_pushButton_Login_clicked()
     Login obj(str_email, str_password);
 
 }
-
-
-
 
 void MainWindow::on_pushButton_clicked()
 {

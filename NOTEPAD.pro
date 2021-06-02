@@ -17,7 +17,7 @@ SOURCES += \
     register.cpp
 
 HEADERS += \
-    functions.h \
+    Login.h \
     mainwindow.h \
     register.h
 
@@ -30,9 +30,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    credentials.csv \
-    reportcard.csv
+DISTFILES +=
 
 RESOURCES += \
     Resources.qrc

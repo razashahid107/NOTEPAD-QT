@@ -11,10 +11,7 @@
 #include <fstream>
 #include <QMessageBox>
 #include "register.h"
-#include "Login.cpp"
-
-using namespace std;
-
+#include "Login.h"
 
 #include <QMainWindow>
 
