@@ -1,6 +1,6 @@
 #include "register.h"
 #include "ui_register.h"
-#include "credentials.h"
+//#include "credentials.h"
 
 bool email_checker(string email) {
     bool atCheck = false;
