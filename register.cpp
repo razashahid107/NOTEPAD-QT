@@ -154,6 +154,6 @@ void Register::on_Register_button_clicked()
         msgBox.setText("Re-Enter Email");
         msgBox.exec();
     }
-    Save_DataBase("ars", "sname", "email", "password");
+    Save_DataBase(email, password, fname, sname);
 }
 
