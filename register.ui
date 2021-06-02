@@ -26,6 +26,9 @@
         <height>233</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/new/prefix1/pure-black-background-f82588d3.jpg);</string>
+      </property>
       <property name="title">
        <string>SignUp</string>
       </property>
