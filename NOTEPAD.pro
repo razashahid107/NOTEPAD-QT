@@ -11,7 +11,6 @@ CONFIG += c++11
 SOURCES += \
     CheckDatabase.cpp \
     Login.cpp \
-    SaveDatabase.cpp \
     main.cpp \
     mainwindow.cpp \
     register.cpp
@@ -31,8 +30,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    credentials.csv \
-    reportcard.csv
+    credentials.csv
 
 RESOURCES += \
     Resources.qrc

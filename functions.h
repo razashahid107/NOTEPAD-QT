@@ -1,9 +1,9 @@
 // #ifndef FUNCTIONS_H
 // #define FUNCTIONS_H
 #pragma once
-#include "mainwindow.h"
 #include <iostream>
 #include <fstream>
+#include "mainwindow.h"
 using namespace std;
 
 bool email_checker(string email)
@@ -90,10 +90,7 @@ void Save_DataBase(string F_name, string L_name, string EMail, string password)
     fstream fout;
 
     // opens an existing csv file or creates a new file.
-    fout.open("credentials.csv", ios::out | ios::app);
-
-    int i, roll, phy, chem, math, bio;
-    string name;
+    fout.open("C:/Users/Anonymous/Documents/C++ Workspace/NOTEPAD-QT/credentials.csv", ios::out | ios::app);
 
     // Insert the data to file
     fout << F_name << ", "

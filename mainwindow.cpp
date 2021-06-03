@@ -19,8 +19,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
 void MainWindow::on_pushButton_Login_clicked()
 {
     QString Email = ui -> lineEdit_email -> text();
@@ -33,9 +31,6 @@ void MainWindow::on_pushButton_Login_clicked()
 
 }
 
-
-
-
 void MainWindow::on_pushButton_clicked()
 {
     hide();
@@ -43,4 +38,3 @@ void MainWindow::on_pushButton_clicked()
     ui2 = new Register(this);
     ui2->show();
 }
-

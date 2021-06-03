@@ -7,7 +7,6 @@
 #include <iomanip>
 #include <stdlib.h>
 #include <conio.h>
-#include <windows.h>
 #include <fstream>
 #include <QMessageBox>
 #include "register.h"

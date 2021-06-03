@@ -1,4 +1,3 @@
-#include <functions.h>
 #include "register.h"
 #include "ui_register.h"
 #include "functions.h"
@@ -52,6 +51,3 @@ void Register::on_Register_button_clicked()
     }
     Save_DataBase(fname, sname, email, password);
 }
-
-
-

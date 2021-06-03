@@ -5,7 +5,6 @@
 #include <iomanip>
 #include <stdlib.h>
 #include <conio.h>
-#include<windows.h>
 #include <qmessagebox.h>
 using namespace std;
 
@@ -13,8 +12,6 @@ class Login
 {
 private:
     string email, password;
-    char pass;
-    int npass, char_count = 0;
     vector<char> temp{};
 
 public:
@@ -103,53 +100,12 @@ public:
         }
     }
 
-    void setPassword(string input_password)
-    {
-        // //cout << "Enter Password: ";
-        // for (int i = 0;;)
-        // {
-        //     pass = getch();
-        //     npass = (int)pass;
-        //     if (npass >= 20 && npass <= 126 && char_count <= 15)
-        //     { //displays asteriks instead of characters to maintain privacy
-        //         temp.push_back(pass);
-        //         char_count++;
-        //         //cout << '*';
-        //     }
-        //     else if (char_count > 15)
-        //     {
-        //         //cout << "Maximum Limit reached!\n"; // Checks for maximunm limit
-        //         break;
-        //     }
-        //     else if (npass == 8 && char_count != 0)
-        //     {
-        //         //cout << '\b' << " " << '\b'; // Makes sure that user can use backspace and backspace do work
-        //         temp.pop_back();
-        //         char_count--;
-        //     }
-        //     else if (char_count == 0) // stops to erase the characters already printed
-        //         continue;
-        //     else
-        //     {
-        //         //cout << endl;
-        //         break;
-        //     }
-        // }
-        password = input_password;
-    }
-
     string getEmail()
     {
         return email;
     }
     string getPassword()
     {
-        for (int i = 0; i <= temp.size(); i++)
-        {
-            //std::cout << temp[i];
-        }
+        return password;
     }
-
-    // Adding a friend function to allow it to save the notes in an array
-    friend void SaveNote();
 };
