@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <fstream>
+#include <QMainWindow>
 #include <QMessageBox>
 #include "register.h"
 #include "Login.cpp"
@@ -15,7 +16,6 @@
 using namespace std;
 
 
-#include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
