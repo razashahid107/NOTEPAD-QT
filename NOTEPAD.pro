@@ -13,15 +13,18 @@ SOURCES += \
     Login.cpp \
     main.cpp \
     mainwindow.cpp \
+    notepad.cpp \
     register.cpp
 
 HEADERS += \
     functions.h \
     mainwindow.h \
+    notepad.h \
     register.h
 
 FORMS += \
     mainwindow.ui \
+    notepad.ui \
     register.ui
 
 # Default rules for deployment.

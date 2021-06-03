@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "mainwindow.h"
+#include "notepad.h"
+
 using namespace std;
 
 namespace Ui {
@@ -12,17 +14,6 @@ class Register;
 class Register : public QMainWindow
 {
     Q_OBJECT
-private:
-    string first_name;
-    string second_name;
-    string Email;
-    string Password;
-    string con_Password;
-    int day_birth;
-    int month_birth;
-    int year_birth;
-    ofstream myfile;
-
 public:
     explicit Register(QWidget *parent = nullptr);
     ~Register();

@@ -2,5 +2,6 @@
     <qresource prefix="/new/prefix1">
         <file>Resources_Images/Blue Background.png</file>
         <file>Resources_Images/Grey Background.jpg</file>
+        <file>Resources_Images/White_Background.jpg</file>
     </qresource>
 </RCC>

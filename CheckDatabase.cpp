@@ -11,7 +11,7 @@ void read_record(string user_ID)
     fstream fin;
   
     // Open an existing file
-    fin.open("credentials.csv", ios::in);
+    fin.open("C:/Users/Anonymous/Documents/C++ Workspace/NOTEPAD-QT/credentials.csv", ios::in);
   
     // Get the roll number
     // of which the data is required

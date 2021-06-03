@@ -7,7 +7,6 @@ Register::Register(QWidget *parent) :
     ui(new Ui::Register)
 {
     ui->setupUi(this);
-    connect(ui->Register_button, SIGNAL(clicked()), this, SLOT(on_Register_button_clicked()));
     ui->label->setStyleSheet("border: 1px solid white;");
     ui->label_2->setStyleSheet("border: 1px solid white;");
     ui->label_3->setStyleSheet("border: 1px solid white;");
@@ -19,11 +18,6 @@ Register::Register(QWidget *parent) :
     ui->qtemail->setPlaceholderText("Email");
     ui->qtpassword->setPlaceholderText("Password");
     ui->qtconfirmpassword->setPlaceholderText("Confirm Password");
-}
-
-Register::~Register()
-{
-    delete ui;
 }
 
 void Register::on_Register_button_clicked()
@@ -50,4 +44,12 @@ void Register::on_Register_button_clicked()
         msgBox.exec();
     }
     Save_DataBase(fname, sname, email, password);
+    Notepad *nui= new Notepad(this);
+    nui->show();
+    hide();
+}
+
+Register::~Register()
+{
+    delete ui;
 }

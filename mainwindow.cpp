@@ -29,6 +29,10 @@ void MainWindow::on_pushButton_Login_clicked()
 
     Login obj(str_email, str_password);
 
+    Notepad *nui= new Notepad(this);
+    nui->show();
+    hide();
+
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -38,3 +42,4 @@ void MainWindow::on_pushButton_clicked()
     ui2 = new Register(this);
     ui2->show();
 }
+
