@@ -101,27 +101,26 @@ string decrypt(string str)
         vecstr.push_back(ch[i]);
     }
 
-    for (int i = 0; i < vecstr.size(); i++)
+    for (int i = 0; i < length; ++i)
     {
-        code = (int)vecstr[i];
-        if ((vecstr[i] == 'f') && (vecstr[i+1] == '#') && (vecstr[i+2] == 'f') ) {
+        if ((ch[i] == 'f') && (ch[i+1] == '#') && (ch[i+2] == 'f') ) {
             
-            code = ((int)vecstr[i+3]);
-            vecdec.push_back((char)code);
-            i =+ 3;
+            code = (int)vecstr[i+3];
+            veccode.push_back(code);
+            i += 3;
+            count++;
         }
         else {
-            code = (int)vecdec[i] + 5;
-            vecdec.push_back((char)code);
+            code = (int)vecstr[i];
+            veccode.push_back(code +5);
         }
     }
 
+    for (int i = 0; i < vecstr.size() - count * 3; i++)
+    {
+        vecdec.push_back((char)veccode[i]);
+    }
 
-
-    // for (int i = 0; i < vecstr.size() + count * 3; i++)
-    // {
-    //     vecenc.push_back((char)veccode[i]);
-    // }
     string f_str(vecdec.begin(), vecdec.end());
     return f_str;
 }
@@ -130,5 +129,5 @@ int main(){
     string str = encr("azeem!");
     cout << str << endl << endl;
     
-    decrypt(str);
+    cout << decrypt(str);
 }

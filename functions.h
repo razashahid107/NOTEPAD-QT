@@ -124,12 +124,7 @@ void Save_DataBase(string F_name, string L_name, string EMail, string password)
     string filename = qtfilename.toStdString();
     qDebug() << qtfilename;
     // opens an existing csv file or creates a new file.
-<<<<<<< HEAD
     fout.open( filename, ios::out | ios::app);
-=======
-    //    file = "C:\Users\User\OneDrive - National University of Sciences & Technology\Uni STUDY\Semester 2\OOP\OOP Proj\NOTEPAD 2\NOTEPAD-QT"
-    fout.open("C:/Users/User/OneDrive - National University of Sciences & Technology/Uni STUDY/Semester 2/OOP/OOP Proj/NOTEPAD 2/NOTEPAD-QT/credentials.csv", ios::out | ios::app);
->>>>>>> refs/remotes/origin/main
 
     // Insert the data to file
     fout << F_name << ", "
