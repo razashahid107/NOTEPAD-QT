@@ -25,8 +25,9 @@ bool email_checker(string email)
 
     if (atCheck == true)
     {
-        if (email[email.length() - 5 ] == '@'){
-    // cout << "\t=>There is a missing domain in your Email." << endl;
+        if (email[email.length() - 5] == '@')
+        {
+            // cout << "\t=>There is a missing domain in your Email." << endl;
             return false;
         }
         comCheck = true; // setting this true temporarily so that the following if function works properly
@@ -53,22 +54,26 @@ bool email_checker(string email)
     }
 }
 
-string encr(string str){
+string encr(string str)
+{
     int code, count = 0;
-    vector<int> veccode {};
+    vector<int> veccode{};
     int length = str.size();
-    char ch[length +1];
-    vector<char> vecstr {};
-    vector<char> vecenc {};
+    char ch[length + 1];
+    vector<char> vecstr{};
+    vector<char> vecenc{};
     strcpy(ch, str.c_str());
 
-    for (int i = 0; i < length; i++){
+    for (int i = 0; i < length; i++)
+    {
         vecstr.push_back(ch[i]);
     }
 
-    for (int i = 0; i < vecstr.size(); i++){
+    for (int i = 0; i < vecstr.size(); i++)
+    {
         code = (int)vecstr[i];
-        if (code < 38){
+        if (code < 38)
+        {
             veccode.push_back('f');
             veccode.push_back('#');
             veccode.push_back('f');
@@ -76,22 +81,46 @@ string encr(string str){
             count++;
         }
         else
-        veccode.push_back(code - 5 );
+            veccode.push_back(code - 5);
     }
-    for (int i = 0; i < vecstr.size() + count * 3; i++){
+    for (int i = 0; i < vecstr.size() + count * 3; i++)
+    {
         vecenc.push_back((char)veccode[i]);
     }
     string f_str(vecenc.begin(), vecenc.end());
     return f_str;
 }
-
+/*
+string decrypt(string str)
+{
+    vector<char> default_char{};
+    vector<char> decrypt_str{};
+    char temp_char;
+    int length = str.length();
+    for (int i = 0; i < length; i++) {
+        default_char.push_back(str[i]);
+    }
+    for (int j = 0; j < length; j++){
+        if ((default_char[j] == 'f') && (default_char[j+1] == '#') && (default_char[j+2] == 'f') ) {
+            j =+ 3;
+            temp_char = ((int)default_char[j+3]) + 5;
+            decrypt_str.push_back(temp_char);
+        }
+        else {
+            decrypt_str.push_back(default_char[j]);
+        }
+    }
+    return str (decrypt_str.begin(), decrypt_str.end());
+}
+*/
 void Save_DataBase(string F_name, string L_name, string EMail, string password)
 {
     // file pointer
     fstream fout;
 
     // opens an existing csv file or creates a new file.
-    fout.open( "C:/Users/Anonymous/Documents/C++ Workspace/NOTEPAD-QT/credentials.csv", ios::out | ios::app);
+    //    file = "C:\Users\User\OneDrive - National University of Sciences & Technology\Uni STUDY\Semester 2\OOP\OOP Proj\NOTEPAD 2\NOTEPAD-QT"
+    fout.open("C:/Users/User/OneDrive - National University of Sciences & Technology/Uni STUDY/Semester 2/OOP/OOP Proj/NOTEPAD 2/NOTEPAD-QT/credentials.csv", ios::out | ios::app);
 
     // Insert the data to file
     fout << F_name << ", "
@@ -101,3 +130,4 @@ void Save_DataBase(string F_name, string L_name, string EMail, string password)
          << "\n";
 }
 // #endif // FUNCTIONS_H
+
