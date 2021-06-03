@@ -4,7 +4,9 @@
 #include <iostream>
 #include <fstream>
 #include "mainwindow.h"
+#include <qdir.h>
 #include <QDir>
+#include <qfile.h>
 using namespace std;
 
 bool email_checker(string email)
@@ -88,10 +90,13 @@ string encr(string str){
 void Save_DataBase(string F_name, string L_name, string EMail, string password)
 {
     // file pointer
+    QDir qdirectory;
     fstream fout;
-
+    QString qtfilename = qdirectory.currentPath() + "/credentials.csv";
+    string filename = qtfilename.toStdString();
+    qDebug() << qtfilename;
     // opens an existing csv file or creates a new file.
-    fout.open( "C:/Users/Anonymous/Documents/C++ Workspace/NOTEPAD-QT/credentials.csv", ios::out | ios::app);
+    fout.open( filename, ios::out | ios::app);
 
     // Insert the data to file
     fout << F_name << ", "
