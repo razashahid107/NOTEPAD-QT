@@ -26,7 +26,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/new/prefix1/d5hl439-00e2967e-4105-4747-9830-fffb1619f1dd.png);</string>
+   <string notr="true">background-image: url(:/new/prefix1/Resources_Images/Blue Background.png);</string>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>true</bool>
@@ -57,13 +57,13 @@
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-image: url(:/new/prefix1/pure-black-background-f82588d3.jpg);
+       <string notr="true">background-image: url(:/new/prefix1/Resources_Images/Grey Background.jpg);
 color: rgb(255, 255, 255);</string>
       </property>
       <property name="title">
        <string>Login</string>
       </property>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -95,7 +95,7 @@ color: rgb(255, 255, 255);</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>10</x>
