@@ -12,6 +12,7 @@
 #include <QMessageBox>
 #include "register.h"
 #include "Login.h"
+#include "notepad.h"
 
 using namespace std;
 
@@ -36,5 +37,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+//    Notepad *nui;
 };
 #endif // MAINWINDOW_H

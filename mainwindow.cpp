@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+//    delete nui;
 }
 
 void MainWindow::on_pushButton_Login_clicked()
@@ -39,18 +40,16 @@ void MainWindow::on_pushButton_Login_clicked()
         ui->lineEdit_Password->clear();
         password_check = 0;
     }
-    if (obj.email_checker(str_email) == true && password_check == 1){
-        Notepad *nui= new Notepad(this);
-        nui->show();
-        hide();
+    if (obj.email_checker(str_email) && password_check == 1){
+        obj.setcredentials(Email, Password);
     }
 }
 
 void MainWindow::on_pushButton_clicked()
 {
     hide();
-    Register *ui2;
-    ui2 = new Register(this);
-    ui2->show();
+    Register *mui;
+    mui = new Register(this);
+    mui->show();
 }
 

@@ -2,6 +2,7 @@
 #define NOTEPAD_H
 
 #include <QMainWindow>
+#include "databasehandler.h"
 
 namespace Ui {
 class Notepad;

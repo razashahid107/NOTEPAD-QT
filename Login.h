@@ -7,6 +7,9 @@
 #include <conio.h>
 #include <qmessagebox.h>
 #include "mainwindow.h"
+#include "databasehandler.h"
+#include "notepad.h"
+
 using namespace std;
 
 class Login
@@ -70,6 +73,15 @@ public:
         else
         {
             return false;
+        }
+    }
+
+    void setcredentials(QString email, QString Password){
+        DatabaseHandler *dbh1 = new DatabaseHandler();
+        dbh1->set_Credentials(email, Password);
+        if (dbh1->ReadData() == true){
+        Notepad *nui = new Notepad();
+        nui->show();
         }
     }
 

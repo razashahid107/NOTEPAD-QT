@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,12 +11,14 @@ CONFIG += c++11
 
 SOURCES += \
     CheckDatabase.cpp \
+    databasehandler.cpp \
     main.cpp \
     mainwindow.cpp \
     notepad.cpp \
     register.cpp
 
 HEADERS += \
+    databasehandler.h \
     functions.h \
     Login.h \
     mainwindow.h \

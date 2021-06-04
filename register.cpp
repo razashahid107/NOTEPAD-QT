@@ -61,8 +61,10 @@ void Register::on_Register_button_clicked()
     }
     if (password_check == 1 && name_check == 1 && email_checker(email) == true)
     {
+        dbh = new DatabaseHandler(this);
+        dbh->DataEntry(qfname, qsname, qemail, qpassword);
         Save_DataBase(fname, sname, email, password);
-        Notepad *nui= new Notepad(this);
+        nui= new Notepad(this);
         nui->show();
         hide();
     }
@@ -71,4 +73,5 @@ void Register::on_Register_button_clicked()
 Register::~Register()
 {
     delete ui;
+    delete dbh;
 }
