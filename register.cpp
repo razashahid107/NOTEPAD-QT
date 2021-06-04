@@ -1,6 +1,6 @@
 #include "register.h"
 #include "ui_register.h"
-#include "functions.h"
+#include <functions.h>
 
 Register::Register(QWidget *parent) :
     QMainWindow(parent),
@@ -33,20 +33,39 @@ void Register::on_Register_button_clicked()
     string email =qemail.toStdString();
     string password =qpassword.toStdString();
     string confirmpassword= qconfirmpassword.toStdString();
-    if (password != confirmpassword){
-        QMessageBox msgBox;
-        msgBox.setText("Password mis-match");
-        msgBox.exec();
+    int pass_length = password.length(), name_length = fname.length();
+    int password_check = 1, name_check = 1;
+
+    if (name_length == 0){
+        name_check = 0;
+        ui->statusbar->showMessage("First Name not entered", 4000);
     }
+
+    if (pass_length < 6){
+        ui->statusbar->showMessage("Password or Confirm Password not entered or less than 6 characters entered", 4000);
+        ui->qtpassword->clear();
+        ui->qtconfirmpassword->clear();
+        password_check = 0;
+    }
+
+    else if (password != confirmpassword){
+        ui->statusbar->showMessage("Password and Confirm Password Mis-match", 4000);
+        ui->qtpassword->clear();
+        ui->qtconfirmpassword->clear();
+        password_check = 0;
+    }
+
     if (!(email_checker(email))){
-        QMessageBox msgBox;
-        msgBox.setText("Re-Enter Email");
-        msgBox.exec();
+        ui->statusbar->showMessage("You Entered wrong Email", 4000);
+        ui->qtemail->clear();
     }
-    Save_DataBase(fname, sname, email, password);
-    Notepad *nui= new Notepad(this);
-    nui->show();
-    hide();
+    if (password_check == 1 && name_check == 1 && email_checker(email) == true)
+    {
+        Save_DataBase(fname, sname, email, password);
+        Notepad *nui= new Notepad(this);
+        nui->show();
+        hide();
+    }
 }
 
 Register::~Register()

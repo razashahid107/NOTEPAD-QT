@@ -10,7 +10,6 @@ CONFIG += c++11
 
 SOURCES += \
     CheckDatabase.cpp \
-    Login.cpp \
     main.cpp \
     mainwindow.cpp \
     notepad.cpp \
@@ -18,6 +17,7 @@ SOURCES += \
 
 HEADERS += \
     functions.h \
+    Login.h \
     mainwindow.h \
     notepad.h \
     register.h

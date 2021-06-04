@@ -3,7 +3,6 @@
 #pragma once
 #include <iostream>
 #include <fstream>
-#include "mainwindow.h"
 #include <qdir.h>
 #include <QDir>
 #include <qfile.h>

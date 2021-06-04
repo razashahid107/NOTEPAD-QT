@@ -26,13 +26,24 @@ void MainWindow::on_pushButton_Login_clicked()
 
     string str_email = Email.toStdString();
     string str_password = Password.toStdString();
+    int password_check = 1, pass_length= str_password.length();
+    Login obj;
 
-    Login obj(str_email, str_password);
+    if (!obj.email_checker(str_email)){
+        ui->statusbar->showMessage("You Entered wrong Email", 4000);
+        ui->lineEdit_email->clear();
+    }
 
-    Notepad *nui= new Notepad(this);
-    nui->show();
-    hide();
-
+    if (pass_length < 6){
+        ui->statusbar->showMessage("Password not entered or less than 6 characters entered", 4000);
+        ui->lineEdit_Password->clear();
+        password_check = 0;
+    }
+    if (obj.email_checker(str_email) == true && password_check == 1){
+        Notepad *nui= new Notepad(this);
+        nui->show();
+        hide();
+    }
 }
 
 void MainWindow::on_pushButton_clicked()

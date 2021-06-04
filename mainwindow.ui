@@ -53,6 +53,9 @@
         <bold>true</bold>
        </font>
       </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
@@ -125,11 +128,24 @@ color: rgb(255, 255, 255);</string>
             <height>0</height>
            </size>
           </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
+          <property name="tabletTracking">
+           <bool>true</bool>
+          </property>
           <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
+           <string notr="true">color: rgb(255, 255, 255);
+border-top-color: rgb(87, 89, 93);</string>
           </property>
           <property name="text">
            <string/>
+          </property>
+          <property name="placeholderText">
+           <string extracomment="Email"/>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -158,7 +174,11 @@ color: rgb(255, 255, 255);</string>
     </item>
    </layout>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <qmessagebox.h>
+#include "mainwindow.h"
 using namespace std;
 
 class Login
@@ -16,40 +17,13 @@ private:
 
 public:
     // we can have a contructor for the login
-    Login(string input_email, string input_password)
-    {
-        // //cout << "Please enter your login credentials: " << endl;
-        // email = input_email;
-        while (1) {
-            
-            if (setEmail(input_email)){
-                // future function to be called, if the email and password is correct
-                break;
-            }
-            else if (!(setEmail(input_email))){
-                QMessageBox msgBox;
-                msgBox.setText("Re-Enter Email");
-                msgBox.exec();
-               
-                if (QMessageBox::Ok){
-                    msgBox.close();
-                    break;
-                }
-            }
-            
-        }
-        
-        password = input_password;
-    }
     // setters and getters
     bool setEmail(string input_email)
     {
         email = input_email;
         if (email_checker(email) == false)
         {
-            //cout << "\tEnter your email again";
             return false;
-            
         }
         return true;
     }
@@ -73,7 +47,6 @@ public:
         if (atCheck == true)
         {
             if (email[email.length() - 5 ] == '@'){
-                // cout << "\t=>There is a missing domain in your Email." << endl;
                 return false;
             }
             comCheck = true; // setting this true temporarily so that the following if function works properly
