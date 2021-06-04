@@ -5,7 +5,9 @@
 #include <fstream>
 #include <qdir.h>
 #include <QDir>
+#include <qfiledialog.h>
 #include <qfile.h>
+#include <QDebug>
 using namespace std;
 
 bool email_checker(string email)
@@ -91,39 +93,18 @@ string encr(string str)
     string f_str(vecenc.begin(), vecenc.end());
     return f_str;
 }
-/*
-string decrypt(string str)
-{
-    vector<char> default_char{};
-    vector<char> decrypt_str{};
-    char temp_char;
-    int length = str.length();
-    for (int i = 0; i < length; i++) {
-        default_char.push_back(str[i]);
-    }
-    for (int j = 0; j < length; j++){
-        if ((default_char[j] == 'f') && (default_char[j+1] == '#') && (default_char[j+2] == 'f') ) {
-            j =+ 3;
-            temp_char = ((int)default_char[j+3]) + 5;
-            decrypt_str.push_back(temp_char);
-        }
-        else {
-            decrypt_str.push_back(default_char[j]);
-        }
-    }
-    return str (decrypt_str.begin(), decrypt_str.end());
-}
-*/
+
 void Save_DataBase(string F_name, string L_name, string EMail, string password)
 {
     // file pointer
     QDir qdirectory;
     fstream fout;
+//    QString qdfilename = QFileDialog::getSaveFileName();
+//    qDebug() << qdfilename;
     QString qtfilename = qdirectory.currentPath() + "/credentials.csv";
     string filename = qtfilename.toStdString();
-    qDebug() << qtfilename;
     // opens an existing csv file or creates a new file.
-    fout.open( filename, ios::out | ios::app);
+    fout.open(filename, ios::out | ios::app);
 
     // Insert the data to file
     fout << F_name << ", "
