@@ -26,6 +26,13 @@ void DatabaseHandler::DataEntry(QString first_name, QString last_name, QString e
     Qman -> put (qreq, enterDocs.toJson());
 }
 
+DatabaseHandler::~DatabaseHandler()
+{
+    delete Qman;
+    delete Qreply1;
+    delete Qreply2;
+}
+
 bool DatabaseHandler::ReadData()
 {
       qDebug() << "yahan tuk tou theek";

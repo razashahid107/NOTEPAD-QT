@@ -102,11 +102,18 @@ border-radius: 10px;</string>
      <string>Tools</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionOnline"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuView"/>
    <addaction name="menuNote"/>
    <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen">
@@ -139,9 +146,9 @@ border-radius: 10px;</string>
   </action>
   <action name="actionSynchronize">
    <property name="icon">
-    <iconset>
-     <normalon>:/new/prefix1/Resources_Images/synch.png</normalon>
-    </iconset>
+    <iconset resource="Resources.qrc">
+     <normaloff>:/new/prefix1/Resources_Images/synch.png</normaloff>
+     <normalon>:/new/prefix1/Resources_Images/synch.png</normalon>:/new/prefix1/Resources_Images/synch.png</iconset>
    </property>
    <property name="text">
     <string>Synchronize</string>
@@ -234,6 +241,15 @@ border-radius: 10px;</string>
    </property>
    <property name="text">
     <string>Event</string>
+   </property>
+  </action>
+  <action name="actionOnline">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/new/prefix1/Resources_Images/pngtree-browser-icon-image_1174655.jpg</normaloff>:/new/prefix1/Resources_Images/pngtree-browser-icon-image_1174655.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>Online</string>
    </property>
   </action>
  </widget>

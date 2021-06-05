@@ -20,3 +20,21 @@ void Notepad::on_save_pushbutton_clicked()
     qDebug() << str;
 }
 
+
+void Notepad::on_actionCopy_triggered()
+{
+    ui->textEdit_notes->copy();
+}
+
+
+void Notepad::on_actionCut_triggered()
+{
+    ui->textEdit_notes->cut();
+}
+
+
+void Notepad::on_actionPaste_triggered()
+{
+    ui->textEdit_notes->paste();
+}
+

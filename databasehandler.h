@@ -16,9 +16,10 @@ public:
     explicit DatabaseHandler(QObject *parent = nullptr);
     void DataEntry(QString first_name, QString last_name, QString email, QString password);
     void set_Credentials(QString Email, QString Password ){
-        this->Email = Email;
-        this->Password = Password;
+    this->Email = Email;
+    this->Password = Password;
     }
+    ~DatabaseHandler();
 
 
 signals:
