@@ -94,6 +94,45 @@ string encr(string str)
     return f_str;
 }
 
+string decrypt(string str)
+{
+    int code, count = 0;
+    vector<int> veccode{};
+    int length = str.size();
+    char ch[length + 1];
+    vector<char> vecstr{};
+    vector<char> vecdec{};
+    strcpy(ch, str.c_str());
+
+    for (int i = 0; i < length; i++)
+    {
+        vecstr.push_back(ch[i]);
+    }
+
+    for (int i = 0; i < length; ++i)
+    {
+        if ((ch[i] == 'f') && (ch[i+1] == '#') && (ch[i+2] == 'f') ) {
+            
+            code = (int)vecstr[i+3];
+            veccode.push_back(code);
+            i += 3;
+            count++;
+        }
+        else {
+            code = (int)vecstr[i];
+            veccode.push_back(code +5);
+        }
+    }
+
+    for (int i = 0; i < vecstr.size() - count * 3; i++)
+    {
+        vecdec.push_back((char)veccode[i]);
+    }
+
+    string f_str(vecdec.begin(), vecdec.end());
+    return f_str;
+}
+
 void Save_DataBase(string F_name, string L_name, string EMail, string password)
 {
     // file pointer

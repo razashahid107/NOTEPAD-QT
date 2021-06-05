@@ -25,7 +25,8 @@ private slots:
 
 private:
     Ui::Register *ui;
-    Notepad *nui;
+//    Notepad *nui;
+
     DatabaseHandler *dbh;
 };
 

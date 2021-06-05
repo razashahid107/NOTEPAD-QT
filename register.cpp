@@ -64,9 +64,10 @@ void Register::on_Register_button_clicked()
         dbh = new DatabaseHandler(this);
         dbh->DataEntry(qfname, qsname, qemail, qpassword);
         Save_DataBase(fname, sname, email, password);
-        nui= new Notepad(this);
-        nui->show();
-        hide();
+        MainWindow *mui;
+        mui = new MainWindow(this);
+        mui->show();
+//        hide();
     }
 }
 
