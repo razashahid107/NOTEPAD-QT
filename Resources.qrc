@@ -3,5 +3,19 @@
         <file>Resources_Images/Blue Background.png</file>
         <file>Resources_Images/Grey Background.jpg</file>
         <file>Resources_Images/White_Background.jpg</file>
+        <file>Resources_Images/open 2.png</file>
+        <file>Resources_Images/open.png</file>
+        <file>Resources_Images/save 2.ico</file>
+        <file>Resources_Images/save as.ico</file>
+        <file>Resources_Images/copy.png</file>
+        <file>Resources_Images/cut.png</file>
+        <file>Resources_Images/paste.png</file>
+        <file>Resources_Images/logout.png</file>
+        <file>Resources_Images/refresh.png</file>
+        <file>Resources_Images/synch.png</file>
+        <file>Resources_Images/events.png</file>
+        <file>Resources_Images/notes.png</file>
+        <file>Resources_Images/reminder.png</file>
+        <file>Resources_Images/tasks.png</file>
     </qresource>
 </RCC>

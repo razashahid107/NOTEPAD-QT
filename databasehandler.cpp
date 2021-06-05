@@ -28,11 +28,13 @@ void DatabaseHandler::DataEntry(QString first_name, QString last_name, QString e
 
 bool DatabaseHandler::ReadData()
 {
-      qDebug() << "yahan tuk tou theek";
-      //QString str1 = Qreply1 -> readAll();
-      qDebug() << Qreply1 -> readAll();;
-      //QString str2 = Qreply2 -> readAll();
-      qDebug() << Qreply2 -> readAll();;
+    QString str1, str2;
+    while (str1.length() == 0 && str2.length() == 0){
+      str1 = Qreply1 -> readAll();
+      str2 = Qreply2 -> readAll();
+    }
+      qDebug() << Qreply1 -> readAll();
+      qDebug() << Qreply2 -> readAll();
 
 //      QString Password_URL = "https://practice-e90c6-default-rtdb.firebaseio.com/New_Entry/Password.json";
 //      Qreply = Qman -> get(QNetworkRequest(QUrl(Password_URL)));
