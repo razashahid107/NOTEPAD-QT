@@ -38,3 +38,15 @@ void Notepad::on_actionPaste_triggered()
     ui->textEdit_notes->paste();
 }
 
+
+void Notepad::on_actionUndo_triggered()
+{
+    ui->textEdit_notes->undo();
+}
+
+
+void Notepad::on_actionRedo_triggered()
+{
+    ui->textEdit_notes->redo();
+}
+

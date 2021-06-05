@@ -17,9 +17,9 @@
    <widget class="QTextEdit" name="textEdit_notes">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>10</x>
       <y>10</y>
-      <width>521</width>
+      <width>781</width>
       <height>511</height>
      </rect>
     </property>
@@ -86,6 +86,8 @@ border-radius: 10px;</string>
     <addaction name="actionCopy"/>
     <addaction name="actionCut"/>
     <addaction name="actionPaste"/>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -250,6 +252,24 @@ border-radius: 10px;</string>
    </property>
    <property name="text">
     <string>Online</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/new/prefix1/Resources_Images/undo.png</normaloff>:/new/prefix1/Resources_Images/undo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/new/prefix1/Resources_Images/png-transparent-black-and-white-font-redo-s-angle-white-text.png</normaloff>:/new/prefix1/Resources_Images/png-transparent-black-and-white-font-redo-s-angle-white-text.png</iconset>
+   </property>
+   <property name="text">
+    <string>Redo</string>
    </property>
   </action>
  </widget>
