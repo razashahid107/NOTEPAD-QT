@@ -29,6 +29,10 @@ private slots:
 
     void on_actionRedo_triggered();
 
+    void on_actionLogout_triggered();
+
+    void on_actionSave_triggered();
+
 private:
     Ui::Notepad *ui;
 };

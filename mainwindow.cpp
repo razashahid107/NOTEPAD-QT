@@ -30,7 +30,7 @@ void MainWindow::on_pushButton_Login_clicked()
     int password_check = 1, pass_length= str_password.length();
     Login obj;
 
-    if (!obj.email_checker(str_email)){
+    if (!obj.email_checker(str_email)) {
         ui->statusbar->showMessage("You Entered wrong Email", 4000);
         ui->lineEdit_email->clear();
     }

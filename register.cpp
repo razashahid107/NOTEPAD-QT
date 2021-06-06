@@ -71,6 +71,7 @@ void Register::on_Register_button_clicked()
         Notepad *nui;
         nui = new Notepad(this);
         nui->show();
+        hide();
     }
 }
 
