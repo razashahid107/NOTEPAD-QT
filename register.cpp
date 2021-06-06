@@ -65,9 +65,12 @@ void Register::on_Register_button_clicked()
         dbh->DataEntry(qfname, qsname, qemail, qpassword);
         Save_DataBase(fname, sname, email, password);
         MainWindow *mui;
-        mui = new MainWindow(this);
-        mui->show();
-        hide();
+//        mui = new MainWindow(this);
+//        mui->show();
+//        hide();
+        Notepad *nui;
+        nui = new Notepad(this);
+        nui->show();
     }
 }
 
