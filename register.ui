@@ -99,7 +99,7 @@
               <string notr="true">color: rgb(255, 255, 255);</string>
              </property>
              <property name="text">
-              <string>Email</string>
+              <string>Username</string>
              </property>
             </widget>
            </item>

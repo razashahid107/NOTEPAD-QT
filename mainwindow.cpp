@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    qDebug() << "Excellent Work done";
+
 //    delete nui;
 }
 
@@ -29,6 +31,8 @@ void MainWindow::on_pushButton_Login_clicked()
     string str_password = Password.toStdString();
     int password_check = 1, pass_length= str_password.length();
     Login obj;
+//    DatabaseHandler *dbh = new DatabaseHandler();
+//    dbh->display();
 
     if (!obj.email_checker(str_email)){
         ui->statusbar->showMessage("You Entered wrong Email", 4000);
@@ -41,8 +45,17 @@ void MainWindow::on_pushButton_Login_clicked()
         password_check = 0;
     }
     if (obj.email_checker(str_email) && password_check == 1){
-        obj.setcredentials(Email, Password);
+//        QDir qdirectory;
+//        fstream myfile;
+//        QString qtfilename = qdirectory.currentPath() + "/login.csv";
+//        string filename = qtfilename.toStdString();
+//        myfile.open(filename, ios::in);
+        //myfile << "Password," << strfirebasePass << '\n';
+
+
+
     }
+
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -52,4 +65,3 @@ void MainWindow::on_pushButton_clicked()
     mui = new Register(this);
     mui->show();
 }
-

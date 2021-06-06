@@ -37,6 +37,5 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-//    Notepad *nui;
 };
 #endif // MAINWINDOW_H

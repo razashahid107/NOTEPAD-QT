@@ -55,8 +55,8 @@ void Register::on_Register_button_clicked()
         password_check = 0;
     }
 
-    if (!(email_checker(email))){
-        ui->statusbar->showMessage("You Entered wrong Email", 4000);
+    if (email.length()<3 ){                                                  //username
+        ui->statusbar->showMessage("Total characters must be greater than 3", 4000);
         ui->qtemail->clear();
     }
     if (password_check == 1 && name_check == 1 && email_checker(email) == true)
@@ -67,7 +67,7 @@ void Register::on_Register_button_clicked()
         MainWindow *mui;
         mui = new MainWindow(this);
         mui->show();
-//        hide();
+        hide();
     }
 }
 

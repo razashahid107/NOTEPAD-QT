@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <qfiledialog.h>
+#include <qfile.h>
 using namespace std;
 
 class DatabaseHandler : public QObject
@@ -12,24 +14,23 @@ class DatabaseHandler : public QObject
 private:
     QString Email;
     QString Password;
+    QString firebaseEmail;
+    QString firebasepassword;
+
 public:
     explicit DatabaseHandler(QObject *parent = nullptr);
     void DataEntry(QString first_name, QString last_name, QString email, QString password);
-    void set_Credentials(QString Email, QString Password ){
-    this->Email = Email;
-    this->Password = Password;
-    }
+    void display(){}
     ~DatabaseHandler();
-
 
 signals:
 public slots:
-    bool ReadData();
+    bool ReadEmail();
+    bool ReadPass();
 
 private:
     QNetworkAccessManager *Qman;
     QNetworkReply *Qreply1;
     QNetworkReply *Qreply2;
 };
-
 #endif // DATABASEHANDLER_H
