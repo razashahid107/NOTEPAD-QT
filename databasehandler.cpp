@@ -22,7 +22,6 @@ void DatabaseHandler::DataEntry(QString first_name, QString last_name, QString u
     string strusername = username.toStdString();
     string strURL = "https://practice-e90c6-default-rtdb.firebaseio.com/" + strusername + ".json";
     QString URL = QString::fromStdString(strURL);
-    qDebug() << URL;
     QNetworkRequest qreq((QUrl(URL)));
     qreq.setHeader(QNetworkRequest::ContentTypeHeader, QString("application/json"));
     Qman -> put (qreq, enterDocs.toJson());
