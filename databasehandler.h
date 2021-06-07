@@ -6,6 +6,11 @@
 #include <QNetworkReply>
 #include <qfiledialog.h>
 #include <qfile.h>
+#include <QJsonDocument>
+#include <QVariantMap>
+#include <QNetworkRequest>
+#include <fstream>
+#include <QDir>
 using namespace std;
 
 class DatabaseHandler : public QObject
