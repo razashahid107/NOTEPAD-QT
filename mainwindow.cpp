@@ -17,9 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-    qDebug() << "Excellent Work done";
-
-//    delete nui;
 }
 
 void MainWindow::on_pushButton_Login_clicked()
@@ -31,8 +28,6 @@ void MainWindow::on_pushButton_Login_clicked()
     string str_password = Password.toStdString();
     int password_check = 1, pass_length= str_password.length();
     Login obj;
-//    DatabaseHandler *dbh = new DatabaseHandler();
-//    dbh->display();
 
     if (!obj.email_checker(str_Username)){
         ui->statusbar->showMessage("You Entered wrong Email", 4000);
@@ -44,15 +39,33 @@ void MainWindow::on_pushButton_Login_clicked()
         ui->lineEdit_Password->clear();
         password_check = 0;
     }
-    if (obj.email_checker(str_Username) && password_check == 1){
-//        QDir qdirectory;
-//        fstream myfile;
-//        QString qtfilename = qdirectory.currentPath() + "/login.csv";
-//        string filename = qtfilename.toStdString();
-//        myfile.open(filename, ios::in);
-        //myfile << "Password," << strfirebasePass << '\n';
-    }
 
+    if (obj.email_checker(str_Username) && password_check == 1){
+        string line, word, temp;
+        QDir qdirectory;
+        fstream myfile;
+        QString qtfilename = qdirectory.currentPath() + "/login.csv";
+        string filename = qtfilename.toStdString();
+        myfile.open(filename, ios::in);
+        vector<string> row;
+        while (myfile >> temp) {
+        row.clear();
+        // read an entire row and
+                // store it in a string variable 'line'
+                getline(myfile, line);
+
+                // used for breaking words
+                stringstream s(line);
+
+                // read every column data of a row and
+                // store it in a string variable, 'word'
+                while (getline(s, word, ',')) {
+
+                    // add all the column data
+                    // of a row to a vector
+                    row.push_back(word);
+                }
+    }
 }
 
 void MainWindow::on_pushButton_clicked()

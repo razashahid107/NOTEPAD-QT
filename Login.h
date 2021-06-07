@@ -38,7 +38,7 @@ public:
 
         string temp = ".com";
         int length = email.length();
-        for (int i = 0; i < email.length(); i++)
+        for (int i = 0; i < length; i++)
         {
             if (email[i] == '@')
             {

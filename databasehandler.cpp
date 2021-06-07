@@ -61,7 +61,6 @@ bool DatabaseHandler::ReadEmail()
         }
     }
     myfile << strfirebaseEmail << '\n';
-    qDebug() << firebaseEmail;
 }
 
 bool DatabaseHandler::ReadPass()
@@ -70,10 +69,8 @@ bool DatabaseHandler::ReadPass()
     QDir qdirectory;
     fstream myfile;
     QString qtfilename = qdirectory.currentPath() + "/login.csv";
-    qDebug() << qtfilename;
     string filename = qtfilename.toStdString();
     myfile.open(filename, ios::out | ios::app);
     string strfirebasePass = firebasepassword.toStdString();
     myfile << "Password," << strfirebasePass << '\n';
-    qDebug() << firebasepassword;
 }

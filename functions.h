@@ -133,23 +133,23 @@ string decrypt(string str)
     return f_str;
 }
 
-void Save_DataBase(string F_name, string L_name, string EMail, string password)
+void Save_DataBase(string F_name, string L_name, string Username, string password)
 {
     // file pointer
     QDir qdirectory;
     fstream fout;
 //    QString qdfilename = QFileDialog::getSaveFileName();
 //    qDebug() << qdfilename;
-    QString qtfilename = qdirectory.currentPath() + "/credentials.csv";
+    QString qtfilename = qdirectory.currentPath() + "/login.csv";
     string filename = qtfilename.toStdString();
     // opens an existing csv file or creates a new file.
     fout.open(filename, ios::out | ios::app);
 
     // Insert the data to file
-    fout << F_name << ", "
-         << L_name << ", "
-         << EMail << ", "
-         << password
+    fout << Username << ", "
+         << "First Name" << F_name << ", "
+         << "Password" << password << ", "
+         << "Second Name" << L_name
          << "\n";
 }
 // #endif // FUNCTIONS_H

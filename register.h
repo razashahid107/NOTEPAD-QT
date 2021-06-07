@@ -23,10 +23,10 @@ private slots:
 
     void on_Register_button_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Register *ui;
-//    Notepad *nui;
-
     DatabaseHandler *dbh;
 };
 

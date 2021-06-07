@@ -1,6 +1,8 @@
 #include "register.h"
 #include "ui_register.h"
-#include <functions.h>
+#include "functions.h"
+#include <cstdio>
+#include <QDir>
 
 Register::Register(QWidget *parent) :
     QMainWindow(parent),
@@ -18,6 +20,10 @@ Register::Register(QWidget *parent) :
     ui->qtemail->setPlaceholderText("Username");
     ui->qtpassword->setPlaceholderText("Password");
     ui->qtconfirmpassword->setPlaceholderText("Confirm Password");
+    QDir qdirectory;
+    fstream myfile;
+    QString qtfilename = qdirectory.currentPath() + "/login.csv";
+    qdirectory.remove(qtfilename);
 }
 
 void Register::on_Register_button_clicked()
@@ -35,7 +41,6 @@ void Register::on_Register_button_clicked()
     string confirmpassword= qconfirmpassword.toStdString();
     int pass_length = password.length(), name_length = fname.length();
     int password_check = 1, name_check = 1;
-
     if (name_length == 0){
         name_check = 0;
         ui->statusbar->showMessage("First Name not entered", 4000);
@@ -63,14 +68,11 @@ void Register::on_Register_button_clicked()
     {
         dbh = new DatabaseHandler(this);
         dbh->DataEntry(qfname, qsname, qusername, qpassword);
-        Save_DataBase(fname, sname, username, password);
-//        MainWindow *mui;
-//        mui = new MainWindow(this);
-//        mui->show();
-//        hide();
-        Notepad *nui;
-        nui = new Notepad(this);
-        nui->show();
+        //Save_DataBase(fname, sname, username, password);
+        MainWindow *mui;
+        mui = new MainWindow(this);
+        mui->show();
+        hide();
     }
 }
 
@@ -79,3 +81,13 @@ Register::~Register()
     delete ui;
     delete dbh;
 }
+
+void Register::on_pushButton_clicked()
+{
+    dbh = new DatabaseHandler(this);
+    MainWindow *mui;
+    mui = new MainWindow(this);
+    mui->show();
+    hide();
+}
+
