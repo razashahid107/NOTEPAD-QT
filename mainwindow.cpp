@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -29,10 +29,10 @@ void MainWindow::on_pushButton_Login_clicked()
     int password_check = 1, pass_length= str_password.length();
     Login obj;
 
-    if (!obj.email_checker(str_Username)){
-        ui->statusbar->showMessage("You Entered wrong Email", 4000);
-        ui->lineEdit_email->clear();
-    }
+//    if (!obj.email_checker(str_Username)){
+//        ui->statusbar->showMessage("You Entered wrong Email", 4000);
+//        ui->lineEdit_email->clear();
+//    }
 
     if (pass_length < 6){
         ui->statusbar->showMessage("Password not entered or less than 6 characters entered", 4000);
@@ -40,23 +40,45 @@ void MainWindow::on_pushButton_Login_clicked()
         password_check = 0;
     }
 
-    if (obj.email_checker(str_Username) && password_check == 1){
-        string line, word, temp;
+    if (password_check == 1){
+        string line, username, temp, garbage, firstname, secondname, password;
+        vector<string> row;
+        bool check = false;
         QDir qdirectory;
         fstream myfile;
         QString qtfilename = qdirectory.currentPath() + "/login.csv";
         string filename = qtfilename.toStdString();
         myfile.open(filename, ios::in);
-        vector<string> row;
-        while (myfile >> temp) {
-        row.clear();
-        getline(myfile, line);
         stringstream s(line);
-        while (getline(s, word, ',')) {
-        row.push_back(word);
+        str_Username =  " \"" + str_Username + "\"";
+        str_password =  "\"" + str_password + "\"";
+//        while (myfile.good()){
+        while (getline(myfile, username, ',') && check == false) {
+//            getline(myfile, username, ',');
+            getline(myfile, garbage, ',');
+            getline(myfile, firstname, ',');
+            getline(myfile, garbage, ',');
+            getline(myfile, password, ',');
+            getline(myfile, garbage, ',');
+            getline(myfile, secondname, '\n');
+            if (username == str_Username){
+                check = true;
+                if(password == str_password){
+                    nui = new Notepad(this);
+                    nui->show();
+                    this->hide();
+                }
+                else{
+                    ui->label_wronpassword->setText("Wrong Password");
+                    ui->statusbar->showMessage("Please Enter correct Password", 5000);
+                }
+            }
+            else {
+                ui->label->setText("Username or Password is Incorrect");
+                ui->statusbar->showMessage("Please Enter correct Username and Password", 5000);
+            }
         }
      }
-  }
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -65,4 +87,5 @@ void MainWindow::on_pushButton_clicked()
     Register *mui;
     mui = new Register(this);
     mui->show();
+    this->hide();
 }

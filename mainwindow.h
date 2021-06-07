@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <string.h>
 #include <vector>
 #include <iomanip>
 #include <stdlib.h>
@@ -35,5 +36,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Notepad *nui;
 };
 #endif // MAINWINDOW_H

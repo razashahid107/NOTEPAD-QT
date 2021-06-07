@@ -46,7 +46,7 @@ bool DatabaseHandler::ReadEmail()
     string strfirebaseEmail = firebaseEmail.toStdString();
     for (int i = 0; i < strfirebaseEmail.length(); i++){
         if (strfirebaseEmail[i] == '{'){
-            strfirebaseEmail[i] = NULL;
+            strfirebaseEmail[i] = ' ';
         }
 
         else if (strfirebaseEmail[i] == ':'){
@@ -54,7 +54,10 @@ bool DatabaseHandler::ReadEmail()
         }
         else if (strfirebaseEmail[i] == '}' && strfirebaseEmail[i+1] == ','){
             strfirebaseEmail[i] = '\n';
-            strfirebaseEmail[i+1] = NULL;
+            strfirebaseEmail[i+1] = ' ';
+        }
+        else if (strfirebaseEmail[i] == '}' && strfirebaseEmail[i+1] == '}' ){
+            strfirebaseEmail[i] = '\n';
         }
         else if (strfirebaseEmail[i] == '}'){
             strfirebaseEmail[i] = ',';
