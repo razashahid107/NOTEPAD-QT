@@ -1,5 +1,7 @@
 #include "notepad.h"
 #include "ui_notepad.h"
+#include "mainwindow.h"
+#include "QDir"
 
 Notepad::Notepad(QWidget *parent) :
     QMainWindow(parent),
@@ -51,5 +53,23 @@ void Notepad::on_actionUndo_triggered()
 void Notepad::on_actionRedo_triggered()
 {
     ui->textEdit_notes->redo();
+}
+
+
+void Notepad::on_actionLogout_triggered()
+{
+    // will push back to the main window when Logout is clicked
+    MainWindow *mui;
+    mui = new MainWindow(this);
+    mui->show();
+    hide();
+}
+
+
+void Notepad::on_actionSave_triggered()
+{
+//    QFile file(QDir::current().absolutePath() + "/peatefinal.txt");
+//    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+//    qDebug() << QDir::current().absolutePath();
 }
 

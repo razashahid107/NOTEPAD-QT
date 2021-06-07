@@ -68,10 +68,21 @@ void Register::on_Register_button_clicked()
     {
         dbh = new DatabaseHandler(this);
         dbh->DataEntry(qfname, qsname, qusername, qpassword);
+<<<<<<< HEAD
         //Save_DataBase(fname, sname, username, password);
         MainWindow *mui;
         mui = new MainWindow(this);
         mui->show();
+=======
+        Save_DataBase(fname, sname, username, password);
+//        MainWindow *mui;
+//        mui = new MainWindow(this);
+//        mui->show();
+//        hide();
+        Notepad *nui;
+        nui = new Notepad(this);
+        nui->show();
+>>>>>>> 1c09f08e1c8b329e83744e0093b636e64d9a3edc
         hide();
     }
 }
