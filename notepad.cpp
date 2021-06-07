@@ -13,7 +13,6 @@ Notepad::Notepad(QWidget *parent) :
     fstream myfile;
     QString qtfilename = qdirectory.currentPath() + "/login.csv";
     qdirectory.remove(qtfilename);
-
 }
 
 Notepad::~Notepad()

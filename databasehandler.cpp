@@ -41,7 +41,7 @@ bool DatabaseHandler::ReadEmail()
     fstream myfile;
     QString qtfilename = qdirectory.currentPath() + "/login.csv";
     string filename = qtfilename.toStdString();
-    myfile.open(filename, ios::out | ios::app);
+    myfile.open(filename, ios::out);
     string strfirebaseEmail = firebaseEmail.toStdString();
     for (int i = 0; i < strfirebaseEmail.length(); i++){
         if (strfirebaseEmail[i] == '{'){
@@ -63,6 +63,7 @@ bool DatabaseHandler::ReadEmail()
         }
     }
     myfile << strfirebaseEmail << '\n';
+    myfile.close();
 }
 
 bool DatabaseHandler::ReadPass()

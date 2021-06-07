@@ -51,11 +51,12 @@ void Register::on_Register_button_clicked()
     getline(myfile, garbage, ',');
     getline(myfile, secondname, '\n');
     if (user_name == tusername){
-           ui->statusbar->showMessage("Username already Available");
+           ui->statusbar->showMessage("Username already Exists");
            ui->qtemail->clear();
            check = true;
     }
     }
+    myfile.close();
 
     if (name_length == 0){
         name_check = 0;
@@ -80,14 +81,15 @@ void Register::on_Register_button_clicked()
         ui->statusbar->showMessage("Total Characters are less than 3 Characters", 4000);
         ui->qtemail->clear();
     }
-    if (password_check == 1 && name_check == 1)
+    if (password_check == 1 && name_check == 1 && check == false)
     {
         dbh = new DatabaseHandler(this);
         dbh->DataEntry(qfname, qsname, qusername, qpassword);
+        myfile.close();
         Notepad *nui;
         nui = new Notepad(this);
         nui->show();
-        hide();
+        this->hide();
     }
 }
 

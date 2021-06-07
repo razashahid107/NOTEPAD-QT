@@ -24,8 +24,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/new/prefix1/Resources_Images/White_Background.jpg);
-color: black;</string>
+     <string notr="true">color: black;
+background-color: rgb(163, 163, 163);</string>
     </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;

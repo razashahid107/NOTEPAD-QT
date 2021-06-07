@@ -7,11 +7,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowState(Qt::WindowMaximized);
-    //ui->label_Email->setStyleSheet("border: 1px solid white;");
-    //ui->label_Password->setStyleSheet("border: 1px solid white;");
     ui->groupBox->setPalette(QPalette(Qt::white));
     ui->lineEdit_email->setPlaceholderText("Username");
     ui->lineEdit_Password->setPlaceholderText("Password");
+    DatabaseHandler *dbh = new DatabaseHandler();
+    dbh->display();
 }
 
 MainWindow::~MainWindow()
@@ -29,10 +29,6 @@ void MainWindow::on_pushButton_Login_clicked()
     int password_check = 1, pass_length= str_password.length();
     Login obj;
 
-//    if (!obj.email_checker(str_Username)){
-//        ui->statusbar->showMessage("You Entered wrong Email", 4000);
-//        ui->lineEdit_email->clear();
-//    }
 
     if (pass_length < 6){
         ui->statusbar->showMessage("Password not entered or less than 6 characters entered", 4000);
@@ -52,9 +48,7 @@ void MainWindow::on_pushButton_Login_clicked()
         stringstream s(line);
         str_Username =  " \"" + str_Username + "\"";
         str_password =  "\"" + str_password + "\"";
-//        while (myfile.good()){
         while (getline(myfile, username, ',') && check == false) {
-//            getline(myfile, username, ',');
             getline(myfile, garbage, ',');
             getline(myfile, firstname, ',');
             getline(myfile, garbage, ',');
@@ -78,6 +72,7 @@ void MainWindow::on_pushButton_Login_clicked()
                 ui->statusbar->showMessage("Please Enter correct Username and Password", 5000);
             }
         }
+        myfile.close();
      }
 }
 
