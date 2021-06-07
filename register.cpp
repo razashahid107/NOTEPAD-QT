@@ -11,6 +11,7 @@ Register::Register(QWidget *parent) :
     ui(new Ui::Register)
 {
     ui->setupUi(this);
+    this->setWindowState(Qt::WindowMaximized);
     ui->qtfirstname->setPlaceholderText("First Name");
     ui->qtsecondname->setPlaceholderText("Second Name");
     ui->qtemail->setPlaceholderText("Username");
@@ -86,8 +87,8 @@ void Register::on_Register_button_clicked()
         dbh = new DatabaseHandler(this);
         dbh->DataEntry(qfname, qsname, qusername, qpassword);
         myfile.close();
-        Notepad *nui;
-        nui = new Notepad(this);
+        Welcome *nui;
+        nui = new Welcome(this);
         nui->show();
         this->hide();
     }

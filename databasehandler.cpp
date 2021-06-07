@@ -6,9 +6,7 @@ DatabaseHandler::DatabaseHandler(QObject *parent) : QObject(parent)
 {
     Qman = new QNetworkAccessManager(this);
     Qreply1 = Qman -> get(QNetworkRequest(QUrl("https://practice-e90c6-default-rtdb.firebaseio.com/.json")));
-    connect(Qreply1, &QNetworkReply::readyRead, this, &DatabaseHandler::ReadEmail);
-//    Qreply2 = Qman -> get(QNetworkRequest(QUrl("https://practice-e90c6-default-rtdb.firebaseio.com/New_Entry/Password.json")));
-//    connect(Qreply2, &QNetworkReply::readyRead, this, &DatabaseHandler::ReadPass);
+    connect(Qreply1, &QNetworkReply::readyRead, this, &DatabaseHandler::ReadData);
 }
 
 void DatabaseHandler::DataEntry(QString first_name, QString last_name, QString username, QString password)
@@ -34,7 +32,7 @@ DatabaseHandler::~DatabaseHandler()
     delete Qreply2;
 }
 
-bool DatabaseHandler::ReadEmail()
+bool DatabaseHandler::ReadData()
 {
     firebaseEmail = Qreply1 -> readAll();
     QDir qdirectory;
@@ -64,16 +62,4 @@ bool DatabaseHandler::ReadEmail()
     }
     myfile << strfirebaseEmail << '\n';
     myfile.close();
-}
-
-bool DatabaseHandler::ReadPass()
-{
-    firebasepassword = Qreply2 -> readAll();
-    QDir qdirectory;
-    fstream myfile;
-    QString qtfilename = qdirectory.currentPath() + "/login.csv";
-    string filename = qtfilename.toStdString();
-    myfile.open(filename, ios::out | ios::app);
-    string strfirebasePass = firebasepassword.toStdString();
-    myfile << "Password," << strfirebasePass << '\n';
 }

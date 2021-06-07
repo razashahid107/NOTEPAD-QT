@@ -5,6 +5,7 @@
 #include "mainwindow.h"
 #include "notepad.h"
 #include "databasehandler.h"
+#include "welcome.h"
 
 using namespace std;
 

@@ -16,7 +16,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     notepad.cpp \
-    register.cpp
+    register.cpp \
+    welcome.cpp
 
 HEADERS += \
     databasehandler.h \
@@ -24,12 +25,14 @@ HEADERS += \
     Login.h \
     mainwindow.h \
     notepad.h \
-    register.h
+    register.h \
+    welcome.h
 
 FORMS += \
     mainwindow.ui \
     notepad.ui \
-    register.ui
+    register.ui \
+    welcome.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

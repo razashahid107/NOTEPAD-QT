@@ -30,8 +30,7 @@ public:
 
 signals:
 public slots:
-    bool ReadEmail();
-    bool ReadPass();
+    bool ReadData();
 
 private:
     QNetworkAccessManager *Qman;
