@@ -3,27 +3,19 @@
 #include "functions.h"
 #include <cstdio>
 #include <QDir>
+#include <QtTest>
+#include <unistd.h>
 
 Register::Register(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Register)
 {
     ui->setupUi(this);
-//    ui->label->setStyleSheet("border: 1px solid white;");
-//    ui->label_2->setStyleSheet("border: 1px solid white;");
-//    ui->label_3->setStyleSheet("border: 1px solid white;");
-//    ui->label_4->setStyleSheet("border: 1px solid white;");
-//    ui->label_5->setStyleSheet("border: 1px solid white;");
-//    ui->label_6->setStyleSheet("border: 1px solid white;");
     ui->qtfirstname->setPlaceholderText("First Name");
     ui->qtsecondname->setPlaceholderText("Second Name");
     ui->qtemail->setPlaceholderText("Username");
     ui->qtpassword->setPlaceholderText("Password");
     ui->qtconfirmpassword->setPlaceholderText("Confirm Password");
-    QDir qdirectory;
-    fstream myfile;
-    QString qtfilename = qdirectory.currentPath() + "/login.csv";
-    qdirectory.remove(qtfilename);
 }
 
 void Register::on_Register_button_clicked()
@@ -33,7 +25,6 @@ void Register::on_Register_button_clicked()
     QString qusername = ui->qtemail->text();
     QString qpassword = ui->qtpassword->text();
     QString qconfirmpassword = ui->qtconfirmpassword->text();
-    //email = ui->secName->text();
     string fname =qfname.toStdString();
     string sname =qsname.toStdString();
     string username =qusername.toStdString();
@@ -41,6 +32,31 @@ void Register::on_Register_button_clicked()
     string confirmpassword= qconfirmpassword.toStdString();
     int pass_length = password.length(), name_length = fname.length();
     int password_check = 1, name_check = 1;
+    string line, user_name, temp, garbage, firstname, secondname, pass_word;
+    vector<string> row;
+    bool check  = false;
+    QDir qdirectory;
+    fstream myfile;
+    QString qtfilename = qdirectory.currentPath() + "/login.csv";
+    string filename = qtfilename.toStdString();
+    myfile.open(filename, ios::in);
+    stringstream s(line);
+    string tusername =  " \"" + username + "\"";
+    string tpassword =  "\"" + password + "\"";
+    while (getline(myfile, user_name, ',')) {
+    getline(myfile, garbage, ',');
+    getline(myfile, firstname, ',');
+    getline(myfile, garbage, ',');
+    getline(myfile, pass_word, ',');
+    getline(myfile, garbage, ',');
+    getline(myfile, secondname, '\n');
+    if (user_name == tusername){
+           ui->statusbar->showMessage("Username already Available");
+           ui->qtemail->clear();
+           check = true;
+    }
+    }
+
     if (name_length == 0){
         name_check = 0;
         ui->statusbar->showMessage("First Name not entered", 4000);
@@ -68,10 +84,9 @@ void Register::on_Register_button_clicked()
     {
         dbh = new DatabaseHandler(this);
         dbh->DataEntry(qfname, qsname, qusername, qpassword);
-        //Save_DataBase(fname, sname, username, password);
-        MainWindow *mui;
-        mui = new MainWindow(this);
-        mui->show();
+        Notepad *nui;
+        nui = new Notepad(this);
+        nui->show();
         hide();
     }
 }
@@ -79,7 +94,6 @@ void Register::on_Register_button_clicked()
 Register::~Register()
 {
     delete ui;
-    delete dbh;
 }
 
 void Register::on_pushButton_clicked()

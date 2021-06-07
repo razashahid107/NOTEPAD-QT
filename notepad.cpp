@@ -9,6 +9,10 @@ Notepad::Notepad(QWidget *parent) :
 {
 
     ui->setupUi(this);
+    QDir qdirectory;
+    fstream myfile;
+    QString qtfilename = qdirectory.currentPath() + "/login.csv";
+    qdirectory.remove(qtfilename);
 
 }
 
