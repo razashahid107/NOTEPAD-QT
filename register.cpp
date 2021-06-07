@@ -15,7 +15,7 @@ Register::Register(QWidget *parent) :
     ui->label_6->setStyleSheet("border: 1px solid white;");
     ui->qtfirstname->setPlaceholderText("First Name");
     ui->qtsecondname->setPlaceholderText("Second Name");
-    ui->qtemail->setPlaceholderText("Email");
+    ui->qtemail->setPlaceholderText("Username");
     ui->qtpassword->setPlaceholderText("Password");
     ui->qtconfirmpassword->setPlaceholderText("Confirm Password");
 }
@@ -24,13 +24,13 @@ void Register::on_Register_button_clicked()
 {
     QString qfname = ui->qtfirstname->text();
     QString qsname = ui->qtsecondname->text();
-    QString qemail = ui->qtemail->text();
+    QString qusername = ui->qtemail->text();
     QString qpassword = ui->qtpassword->text();
     QString qconfirmpassword = ui->qtconfirmpassword->text();
     //email = ui->secName->text();
     string fname =qfname.toStdString();
     string sname =qsname.toStdString();
-    string email =qemail.toStdString();
+    string username =qusername.toStdString();
     string password =qpassword.toStdString();
     string confirmpassword= qconfirmpassword.toStdString();
     int pass_length = password.length(), name_length = fname.length();
@@ -55,16 +55,16 @@ void Register::on_Register_button_clicked()
         password_check = 0;
     }
 
-    if (!(email_checker(email))){
-        ui->statusbar->showMessage("You Entered wrong Email", 4000);
+    if (username.length() < 3){
+        ui->statusbar->showMessage("Total Characters are less than 3 Characters", 4000);
         ui->qtemail->clear();
     }
-    if (password_check == 1 && name_check == 1 && email_checker(email) == true)
+    if (password_check == 1 && name_check == 1)
     {
         dbh = new DatabaseHandler(this);
-        dbh->DataEntry(qfname, qsname, qemail, qpassword);
-        Save_DataBase(fname, sname, email, password);
-        MainWindow *mui;
+        dbh->DataEntry(qfname, qsname, qusername, qpassword);
+        Save_DataBase(fname, sname, username, password);
+//        MainWindow *mui;
 //        mui = new MainWindow(this);
 //        mui->show();
 //        hide();

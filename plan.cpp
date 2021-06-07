@@ -125,9 +125,37 @@ string decrypt(string str)
     return f_str;
 }
 
-int main(){
-    string str = encr("azeem!");
-    cout << str << endl << endl;
-    
-    cout << decrypt(str);
+bool readRecordFromFile(string input_email, string input_password){
+    ifstream file;
+    file.open("C:/Users/Anonymous/Downloads/build-NOTEPAD-Desktop_Qt_6_1_0_MinGW_64_bit-Debug/login.csv");
+
+    bool foundRecord = false;
+    string email, password;
+    char del = ',';
+
+    while (getline(file,email,del) && !(foundRecord)){
+        getline(file, password, ',');
+        if ((email == input_email)){
+            cout << email;
+            cout << password;
+            foundRecord = true;
+            return true;
+        }
+        else return false;
+    }
+
 }
+
+int main(){
+    if (readRecordFromFile("Password", "123456") != true){
+        cout << "true";
+    }
+     
+}
+
+// int main(){
+//     string str = encr("azeem!");
+//     cout << str << endl << endl;
+    
+//     cout << decrypt(str);
+// }

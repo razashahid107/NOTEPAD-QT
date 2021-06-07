@@ -76,21 +76,23 @@ public:
         }
     }
 
-    void setcredentials(QString email, QString Password){
-        DatabaseHandler *dbh1 = new DatabaseHandler();
-        dbh1->set_Credentials(email, Password);
-        if (dbh1->ReadData() == true){
-        Notepad *nui = new Notepad();
-        nui->show();
-        }
-    }
-
     string getEmail()
     {
         return email;
     }
+
     string getPassword()
     {
         return password;
     }
+
+//    bool readFireEmail(QString Email){
+//        if (firebaseEmail == Email) return true;
+//        else return false;
+//    }
+
+//    bool readFirePass(QString Password){
+//        if (firebasepassword == Password) return true;
+//        else return false;
+//    }
 };
