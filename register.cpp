@@ -9,12 +9,12 @@ Register::Register(QWidget *parent) :
     ui(new Ui::Register)
 {
     ui->setupUi(this);
-    ui->label->setStyleSheet("border: 1px solid white;");
-    ui->label_2->setStyleSheet("border: 1px solid white;");
-    ui->label_3->setStyleSheet("border: 1px solid white;");
-    ui->label_4->setStyleSheet("border: 1px solid white;");
-    ui->label_5->setStyleSheet("border: 1px solid white;");
-    ui->label_6->setStyleSheet("border: 1px solid white;");
+//    ui->label->setStyleSheet("border: 1px solid white;");
+//    ui->label_2->setStyleSheet("border: 1px solid white;");
+//    ui->label_3->setStyleSheet("border: 1px solid white;");
+//    ui->label_4->setStyleSheet("border: 1px solid white;");
+//    ui->label_5->setStyleSheet("border: 1px solid white;");
+//    ui->label_6->setStyleSheet("border: 1px solid white;");
     ui->qtfirstname->setPlaceholderText("First Name");
     ui->qtsecondname->setPlaceholderText("Second Name");
     ui->qtemail->setPlaceholderText("Username");
@@ -90,4 +90,3 @@ void Register::on_pushButton_clicked()
     mui->show();
     hide();
 }
-
