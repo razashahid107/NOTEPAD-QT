@@ -50,22 +50,13 @@ void MainWindow::on_pushButton_Login_clicked()
         vector<string> row;
         while (myfile >> temp) {
         row.clear();
-        // read an entire row and
-                // store it in a string variable 'line'
-                getline(myfile, line);
-
-                // used for breaking words
-                stringstream s(line);
-
-                // read every column data of a row and
-                // store it in a string variable, 'word'
-                while (getline(s, word, ',')) {
-
-                    // add all the column data
-                    // of a row to a vector
-                    row.push_back(word);
-                }
-    }
+        getline(myfile, line);
+        stringstream s(line);
+        while (getline(s, word, ',')) {
+        row.push_back(word);
+        }
+     }
+  }
 }
 
 void MainWindow::on_pushButton_clicked()
