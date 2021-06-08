@@ -13,6 +13,7 @@ CONFIG += c++11
 SOURCES += \
     CheckDatabase.cpp \
     databasehandler.cpp \
+    initialscr.cpp \
     main.cpp \
     mainwindow.cpp \
     notepad.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     databasehandler.h \
     functions.h \
     Login.h \
+    initialscr.h \
     mainwindow.h \
     notepad.h \
     register.h \
@@ -31,6 +33,7 @@ HEADERS += \
     welcome.h
 
 FORMS += \
+    initialscr.ui \
     mainwindow.ui \
     notepad.ui \
     register.ui \

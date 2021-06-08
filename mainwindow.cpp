@@ -74,6 +74,13 @@ void MainWindow::on_pushButton_Login_clicked()
         }
         myfile.close();
      }
+    fstream myfile2;
+    QDir qdirectory2;
+    QString qtfilename = qdirectory2.currentPath() + "/initialscrcheck.csv";
+    string filename2 = qtfilename.toStdString();
+    myfile2.open(filename2, ios::out);
+    Login lg;
+    myfile2 << lg.encr(Username.toStdString()) << ',' << lg.encr(Password.toStdString()) << '\n';
 }
 
 void MainWindow::on_pushButton_clicked()

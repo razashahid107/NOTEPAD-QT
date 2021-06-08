@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/new/prefix1/Resources_Images/Welcome_screen.jpg);</string>
+   <string notr="true">background-image: url(:/new/prefix1/Resources_Images/Blue Background.png);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">

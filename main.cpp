@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-
+#include "initialscr.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -11,8 +11,10 @@ int main(int argc, char *argv[])
     qdirectory.remove(qtfilename);
     DatabaseHandler *dbh = new DatabaseHandler();
     dbh->display();
-    MainWindow w;
-    w.show();
+//    MainWindow w;
+//    w.show();
+    Initialscr iui;
+    iui.show();
     return a.exec();
     delete dbh;
 }
