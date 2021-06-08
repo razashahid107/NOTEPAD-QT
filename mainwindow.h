@@ -24,9 +24,18 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+private:
+    string setUsername;
+    string setPassword;
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    string getusername(){
+        return setUsername;
+    }
+    string getpassword(){
+        return setPassword;
+    }
     ~MainWindow();
 
 private slots:

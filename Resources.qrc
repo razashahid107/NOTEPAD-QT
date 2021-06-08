@@ -23,5 +23,6 @@
         <file>Resources_Images/Welcome_screen.jpg</file>
         <file>Resources_Images/Welcome_screen.jpg.png</file>
         <file>Resources_Images/getstarted.png</file>
+        <file>Resources_Images/quit.png</file>
     </qresource>
 </RCC>
