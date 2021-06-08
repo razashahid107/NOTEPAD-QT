@@ -17,7 +17,8 @@ Initialscr::~Initialscr()
     delete ui;
 }
 
-void Initialscr::on_commandLinkButton_clicked()
+
+void Initialscr::on_pushButton_clicked()
 {
     fstream myfile;
     QDir qdirectory;
@@ -46,6 +47,5 @@ void Initialscr::on_commandLinkButton_clicked()
             hide();
         }
     }
-
 }
 

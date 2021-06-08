@@ -105,7 +105,7 @@ public:
         for (int i = 0; i < vecstr.size(); i++)
         {
             code = (int)vecstr[i];
-            if (code < 38)
+            if (code < 38 || code == 49)
             {
                 veccode.push_back('f');
                 veccode.push_back('#');

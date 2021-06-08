@@ -6,33 +6,37 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1689</width>
-    <height>1103</height>
+    <width>872</width>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/new/prefix1/Resources_Images/Welcome_screen.jpg.png);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QCommandLinkButton" name="commandLinkButton">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="pushButton">
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="text">
-       <string>Click Anywhere</string>
+       <string>      Get Started</string>
       </property>
       <property name="icon">
-       <iconset resource="Resources.qrc">
-        <normaloff>:/new/prefix1/Resources_Images/getstarted.png</normaloff>:/new/prefix1/Resources_Images/getstarted.png</iconset>
+       <iconset>
+        <normalon>:/new/prefix1/Resources_Images/getstarted.png</normalon>
+       </iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/new/prefix1/Resources_Images/Welcome_screen.jpg.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
@@ -51,8 +55,6 @@
    </attribute>
   </widget>
  </widget>
- <resources>
-  <include location="Resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

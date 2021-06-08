@@ -30,7 +30,8 @@ public:
     ~Initialscr();
 
 private slots:
-    void on_commandLinkButton_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::Initialscr *ui;
