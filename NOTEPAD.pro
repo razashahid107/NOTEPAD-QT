@@ -17,6 +17,7 @@ SOURCES += \
     mainwindow.cpp \
     notepad.cpp \
     register.cpp \
+    reminders.cpp \
     welcome.cpp
 
 HEADERS += \
@@ -26,12 +27,14 @@ HEADERS += \
     mainwindow.h \
     notepad.h \
     register.h \
+    reminders.h \
     welcome.h
 
 FORMS += \
     mainwindow.ui \
     notepad.ui \
     register.ui \
+    reminders.ui \
     welcome.ui
 
 # Default rules for deployment.
