@@ -81,3 +81,12 @@ void Notepad::on_actionSave_triggered()
 //    qDebug() << QDir::current().absolutePath();
 }
 
+
+void Notepad::on_actionReminder_triggered()
+{
+    Reminders *rui;
+    rui = new Reminders();
+    rui->show();
+    this->hide();
+}
+

@@ -58,6 +58,7 @@ void MainWindow::on_pushButton_Login_clicked()
             if (username == str_Username){
                 check = true;
                 if(password == str_password){
+                    Notepad *nui;
                     nui = new Notepad(this);
                     nui->show();
                     this->hide();

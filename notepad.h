@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "databasehandler.h"
+#include "reminders.h"
 
 namespace Ui {
 class Notepad;
@@ -32,6 +33,8 @@ private slots:
     void on_actionLogout_triggered();
 
     void on_actionSave_triggered();
+
+    void on_actionReminder_triggered();
 
 private:
     Ui::Notepad *ui;

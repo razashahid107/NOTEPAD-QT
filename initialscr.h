@@ -21,12 +21,6 @@ private:
 
 public:
     explicit Initialscr(QWidget *parent = nullptr);
-    string getusername(){
-        return username;
-    }
-    string getpassword(){
-        return password;
-    }
     ~Initialscr();
 
 private slots:

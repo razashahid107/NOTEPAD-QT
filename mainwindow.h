@@ -30,12 +30,6 @@ private:
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    string getusername(){
-        return setUsername;
-    }
-    string getpassword(){
-        return setPassword;
-    }
     ~MainWindow();
 
 private slots:
@@ -45,6 +39,5 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Notepad *nui;
 };
 #endif // MAINWINDOW_H
