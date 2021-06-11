@@ -3,7 +3,11 @@
 
 #include <QMainWindow>
 #include "databasehandler.h"
+<<<<<<< HEAD
 #include "reminders.h"
+=======
+#include <fstream>
+>>>>>>> 4b758f715876e38fb208f1bf40d1350f85f1265b
 
 namespace Ui {
 class Notepad;
@@ -12,12 +16,14 @@ class Notepad;
 class Notepad : public QMainWindow
 {
     Q_OBJECT
-
+private:
+    string FileAddress = "";
 public:
     explicit Notepad(QWidget *parent = nullptr);
     ~Notepad();
 
 private slots:
+
     void on_save_pushbutton_clicked();
 
     void on_actionCopy_triggered();
@@ -34,7 +40,23 @@ private slots:
 
     void on_actionSave_triggered();
 
+<<<<<<< HEAD
     void on_actionReminder_triggered();
+=======
+    void on_Copy_push_button_clicked();
+
+    void on_Cut_Push_Button_clicked();
+
+    void on_Paste_Push_Button_clicked();
+
+    void on_save_pushbutton_2_clicked();
+
+    void setAddress(string);
+
+    string getAddress();
+
+    void on_actionOpen_triggered();
+>>>>>>> 4b758f715876e38fb208f1bf40d1350f85f1265b
 
 private:
     Ui::Notepad *ui;
