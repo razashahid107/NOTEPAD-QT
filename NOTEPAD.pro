@@ -22,7 +22,6 @@ SOURCES += \
     welcome.cpp
 
 HEADERS += \
-    QNetworkAccessManagerWithPatch.h \
     databasehandler.h \
     functions.h \
     Login.h \
