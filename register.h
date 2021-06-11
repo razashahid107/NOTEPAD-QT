@@ -18,9 +18,11 @@ class Register : public QMainWindow
     Q_OBJECT
 public:
     explicit Register(QWidget *parent = nullptr);
+    QString getUserName();
     ~Register();
 
 private slots:
+
 
     void on_Register_button_clicked();
 

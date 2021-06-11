@@ -19,6 +19,10 @@ Register::Register(QWidget *parent) :
     ui->qtconfirmpassword->setPlaceholderText("Confirm Password");
 }
 
+QString Register::getUserName(){
+    return ui->qtemail->text();
+}
+
 void Register::on_Register_button_clicked()
 {
     QString qfname = ui->qtfirstname->text();
@@ -45,17 +49,17 @@ void Register::on_Register_button_clicked()
     string tusername =  " \"" + username + "\"";
     string tpassword =  "\"" + password + "\"";
     while (getline(myfile, user_name, ',')) {
-    getline(myfile, garbage, ',');
-    getline(myfile, firstname, ',');
-    getline(myfile, garbage, ',');
-    getline(myfile, pass_word, ',');
-    getline(myfile, garbage, ',');
-    getline(myfile, secondname, '\n');
-    if (user_name == tusername){
+        getline(myfile, garbage, ',');
+        getline(myfile, firstname, ',');
+        getline(myfile, garbage, ',');
+        getline(myfile, pass_word, ',');
+        getline(myfile, garbage, ',');
+        getline(myfile, secondname, '\n');
+        if (user_name == tusername){
            ui->statusbar->showMessage("Username already Exists");
            ui->qtemail->clear();
            check = true;
-    }
+        }
     }
     myfile.close();
 
