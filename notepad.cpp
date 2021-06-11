@@ -98,7 +98,6 @@ void Notepad::on_actionSave_triggered()
 //    qDebug() << QDir::current().absolutePath();
 }
 
-<<<<<<< HEAD
 
 void Notepad::on_actionReminder_triggered()
 {
@@ -108,7 +107,6 @@ void Notepad::on_actionReminder_triggered()
     this->hide();
 }
 
-=======
 void Notepad::on_Copy_push_button_clicked()
 {
     ui->textEdit_notes->copy();
@@ -192,4 +190,3 @@ void Notepad::on_actionOpen_triggered()
 
 //    plain_text_edit->setPlainText(QString::fromStdString(final_string));
 }
->>>>>>> 4b758f715876e38fb208f1bf40d1350f85f1265b

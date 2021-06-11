@@ -3,11 +3,8 @@
 
 #include <QMainWindow>
 #include "databasehandler.h"
-<<<<<<< HEAD
 #include "reminders.h"
-=======
 #include <fstream>
->>>>>>> 4b758f715876e38fb208f1bf40d1350f85f1265b
 
 namespace Ui {
 class Notepad;
@@ -40,9 +37,8 @@ private slots:
 
     void on_actionSave_triggered();
 
-<<<<<<< HEAD
     void on_actionReminder_triggered();
-=======
+    
     void on_Copy_push_button_clicked();
 
     void on_Cut_Push_Button_clicked();
@@ -56,7 +52,6 @@ private slots:
     string getAddress();
 
     void on_actionOpen_triggered();
->>>>>>> 4b758f715876e38fb208f1bf40d1350f85f1265b
 
 private:
     Ui::Notepad *ui;
