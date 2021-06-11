@@ -33,6 +33,14 @@ private slots:
 
     void on_actionSave_triggered();
 
+
+
+    void on_Copy_push_button_clicked();
+
+    void on_Cut_Push_Button_clicked();
+
+    void on_Paste_Push_Button_clicked();
+
 private:
     Ui::Notepad *ui;
 };

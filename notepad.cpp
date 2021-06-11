@@ -14,6 +14,10 @@ Notepad::Notepad(QWidget *parent) :
     fstream myfile;
     QString qtfilename = qdirectory.currentPath() + "/login.csv";
     qdirectory.remove(qtfilename);
+    for (int n = 1; n < 1000; n++){
+        QString tmp = QString::number(n);
+
+    }
 }
 
 Notepad::~Notepad()
@@ -27,6 +31,11 @@ void Notepad::on_save_pushbutton_clicked()
 
     std::string sstr = str.toStdString();
     qDebug() << str;
+
+    QString saveAddres = QFileDialog::getSaveFileName();
+    qDebug() << "THis is my add" << saveAddres;
+
+
 }
 
 
@@ -79,5 +88,28 @@ void Notepad::on_actionSave_triggered()
 //    QFile file(QDir::current().absolutePath() + "/peatefinal.txt");
 //    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
 //    qDebug() << QDir::current().absolutePath();
+}
+
+
+
+
+
+void Notepad::on_Copy_push_button_clicked()
+{
+    ui->textEdit_notes->copy();
+}
+
+
+
+void Notepad::on_Cut_Push_Button_clicked()
+{
+    ui->textEdit_notes->cut();
+}
+
+
+
+void Notepad::on_Paste_Push_Button_clicked()
+{
+    ui->textEdit_notes->paste();
 }
 
