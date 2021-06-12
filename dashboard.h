@@ -15,6 +15,9 @@ public:
     explicit DashBoard(QWidget *parent = nullptr);
     ~DashBoard();
 
+private slots:
+    void on_Note_pb_clicked();
+
 private:
     Ui::DashBoard *ui;
 };

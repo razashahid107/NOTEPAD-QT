@@ -23,7 +23,6 @@ Notepad::Notepad(QWidget *parent) :
     qdirectory.remove(qtfilename);
     for (int n = 1; n < 1000; n++){
         QString tmp = QString::number(n);
-
     }
 }
 
@@ -37,9 +36,7 @@ void Notepad::on_save_pushbutton_clicked()
     // Pop up to get the address
     QString saveAddres = QFileDialog::getSaveFileName();
     setAddress(saveAddres.toStdString());
-//    qDebug() << saveAddres;
     fstream fout;
-
     string FileName = FileAddress;
     // opens an existing csv file or creates a new file.
     fout.open(FileName, ios::out);
