@@ -14,6 +14,7 @@ SOURCES += \
     CheckDatabase.cpp \
     dashboard.cpp \
     databasehandler.cpp \
+    events.cpp \
     initialscr.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
 HEADERS += \
     dashboard.h \
     databasehandler.h \
+    events.h \
     functions.h \
     Login.h \
     initialscr.h \
@@ -36,6 +38,7 @@ HEADERS += \
 
 FORMS += \
     dashboard.ui \
+    events.ui \
     initialscr.ui \
     mainwindow.ui \
     notepad.ui \
