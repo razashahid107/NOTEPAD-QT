@@ -20,8 +20,6 @@ public:
 private slots:
     void on_Note_pb_clicked();
 
-    void on_Reminder_pb_clicked();
-
 private:
     Reminders *rui;
     Notepad *nui;

@@ -30,7 +30,8 @@ public:
 
 signals:
 public slots:
-    bool ReadData();
+    void ReadData();
+    void ReadReminders();
 
 private:
     QNetworkAccessManager *Qman;
