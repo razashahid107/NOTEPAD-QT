@@ -22,7 +22,10 @@ private slots:
 
     void on_pushButton_clicked();
 
+
+
 private:
+    static int counter;
     Ui::Events *ui;
 };
 

@@ -28,3 +28,10 @@ void DashBoard::on_Reminder_pb_clicked()
     rui->show();
 }
 
+
+void DashBoard::on_Events_pb_clicked()
+{
+    eui = new Events(this);
+    eui->show();
+}
+

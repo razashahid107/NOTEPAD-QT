@@ -8,7 +8,7 @@ Initialscr::Initialscr(QWidget *parent) :
     ui(new Ui::Initialscr)
 {
     ui->setupUi(this);
-    this->setWindowState(Qt::WindowMaximized);
+    this->setWindowState(Qt::WindowMaximized); // maximizes screen
 
 }
 
