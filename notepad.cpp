@@ -23,7 +23,6 @@ Notepad::Notepad(QWidget *parent) :
     qdirectory.remove(qtfilename);
     for (int n = 1; n < 1000; n++){
         QString tmp = QString::number(n);
-
     }
 }
 

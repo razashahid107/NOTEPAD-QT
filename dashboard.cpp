@@ -1,6 +1,7 @@
 #include "dashboard.h"
 #include "ui_dashboard.h"
 
+
 DashBoard::DashBoard(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::DashBoard)
@@ -16,5 +17,14 @@ DashBoard::~DashBoard()
 void DashBoard::on_Note_pb_clicked()
 {
 
+    nui = new Notepad(this);
+    nui->show();
+}
+
+
+void DashBoard::on_Reminder_pb_clicked()
+{
+    rui = new Reminders(this);
+    rui->show();
 }
 

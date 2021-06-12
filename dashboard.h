@@ -1,5 +1,7 @@
 #ifndef DASHBOARD_H
 #define DASHBOARD_H
+#include "notepad.h"
+#include "reminders.h"
 
 #include <QMainWindow>
 
@@ -15,7 +17,14 @@ public:
     explicit DashBoard(QWidget *parent = nullptr);
     ~DashBoard();
 
+private slots:
+    void on_Note_pb_clicked();
+
+    void on_Reminder_pb_clicked();
+
 private:
+    Reminders *rui;
+    Notepad *nui;
     Ui::DashBoard *ui;
 };
 
