@@ -2,6 +2,8 @@
 #define EVENTS_H
 
 #include <QMainWindow>
+#include <QDir>
+#include <mainwindow.h>
 
 namespace Ui {
 class Events;
@@ -15,7 +17,15 @@ public:
     explicit Events(QWidget *parent = nullptr);
     ~Events();
 
+private slots:
+    void on_reminderTitle_blockCountChanged(int newBlockCount);
+
+    void on_pushButton_clicked();
+
+
+
 private:
+    static int counter;
     Ui::Events *ui;
 };
 
