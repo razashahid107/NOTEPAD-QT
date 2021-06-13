@@ -12,6 +12,7 @@
 #include "QNetworkAccessManager"
 #include "initialscr.h"
 #include "iostream"
+#include "dashboard.h"
 
 namespace Ui {
 class Reminders;
@@ -35,6 +36,8 @@ private slots:
     void on_save_pushButton_clicked();
 
     void on_exit_pushButton_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::Reminders *ui;

@@ -8,12 +8,8 @@ Initialscr::Initialscr(QWidget *parent) :
     ui(new Ui::Initialscr)
 {
     ui->setupUi(this);
-<<<<<<< HEAD
-    this->setWindowState(Qt::WindowMaximized);
-=======
     this->setWindowState(Qt::WindowMaximized); // maximizes screen
 
->>>>>>> be1bcf4dcc87c02d4390f0f7f07a46dfd84f05a4
 }
 
 Initialscr::~Initialscr()
@@ -41,8 +37,8 @@ void Initialscr::on_pushButton_clicked()
         username = lg.decrypt(username);
         password = lg.decrypt(password);
         if (username.length()>3 && password.length()>5){
-            Notepad *nui = new Notepad();
-            nui->show();
+            DashBoard *dsb = new DashBoard();
+            dsb->show();
             Qman = new QNetworkAccessManager(this);
             Qreply1 = Qman->get(QNetworkRequest(QUrl("https://practice-e90c6-default-rtdb.firebaseio.com/Counting/" + QString::fromStdString(username) + "/Number" + ".json")));
             connect(Qreply1, &QNetworkReply::readyRead, this, &Initialscr::Readconting);
@@ -59,7 +55,6 @@ void Initialscr::on_pushButton_clicked()
 void Initialscr::Readconting()
 {
     QString firebaseReminders = Qreply1->readAll();
-    qDebug() << firebaseReminders;
     QDir qdirectory;
     fstream myfile;
     QString qtfilename = qdirectory.currentPath() + "/number.txt";

@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>818</width>
-    <height>572</height>
+    <width>874</width>
+    <height>407</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/new/prefix1/Resources_Images/grey.png);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
@@ -27,6 +30,10 @@
           <family>Nirmala UI</family>
           <pointsize>24</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+</string>
         </property>
         <property name="text">
          <string>  NOTES</string>
@@ -51,6 +58,9 @@
           <pointsize>24</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
         <property name="text">
          <string>REMINDERS</string>
         </property>
@@ -66,29 +76,6 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="2">
-       <widget class="QPushButton" name="Events_pb">
-        <property name="font">
-         <font>
-          <family>Nirmala UI</family>
-          <pointsize>24</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>  EVENTS</string>
-        </property>
-        <property name="icon">
-         <iconset resource="Resources.qrc">
-          <normaloff>:/new/prefix1/Resources_Images/events.png</normaloff>:/new/prefix1/Resources_Images/events.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>35</width>
-          <height>36</height>
-         </size>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="3">
        <widget class="QPushButton" name="Tasks_pb">
         <property name="font">
@@ -96,6 +83,9 @@
           <family>Nirmala UI</family>
           <pointsize>24</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
          <string> TASKS</string>
@@ -107,6 +97,32 @@
         <property name="iconSize">
          <size>
           <width>32</width>
+          <height>36</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="Events_pb">
+        <property name="font">
+         <font>
+          <family>Nirmala UI</family>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>  EVENTS</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Resources.qrc">
+          <normaloff>:/new/prefix1/Resources_Images/events.png</normaloff>:/new/prefix1/Resources_Images/events.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>35</width>
           <height>36</height>
          </size>
         </property>

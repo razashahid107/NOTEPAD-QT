@@ -16,7 +16,6 @@ Notepad::Notepad(QWidget *parent) :
 {
 
     ui->setupUi(this);
-    this->setWindowState(Qt::WindowMaximized);
     QDir qdirectory;
     fstream myfile;
     QString qtfilename = qdirectory.currentPath() + "/login.csv";

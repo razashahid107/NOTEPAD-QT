@@ -9,6 +9,7 @@ Reminders::Reminders(QWidget *parent) :
     ui->setupUi(this);
     ui->reminderTitle->setPlaceholderText("Enter Title");
     ui->reminderBody->setPlaceholderText("Enter Reminder");
+    this->setWindowState(Qt::WindowMaximized);
     fstream myfile;
     QDir qdirectory;
     QString qtfilename = qdirectory.currentPath() + "/initialscrcheck.csv";
@@ -186,9 +187,17 @@ void Reminders::on_exit_pushButton_clicked()
         getline(myfile2, garbage, ',');
         getline(myfile2, garbage, '\n');
     }
-    for (int i = 0; i < vtitle.size(); i++){
-    ui->reminderdisplay->appendPlainText(QString::number(i+1) + ".\n" + "Date: " + QString::fromStdString(vdate[i]) + "/" + QString::fromStdString(vmonth[i]) + "/ 2021" + "\t\tTime:" + QString::fromStdString(vhour[i]) + ":" + QString::fromStdString(vmin[i]) + ": 00" + "\nTitle:" + QString::fromStdString(vtitle[i]) + "\nReminder:" + QString::fromStdString(vbody[i]) + "\n\n");
+    for (int i = 0; i < vtitle.size()-1; i++){
+    ui->reminderdisplay->appendPlainText(QString::number(i+1) + ".\n" + "Date: " + QString::fromStdString(vdate[i]) + "/" + QString::fromStdString(vmonth[i]) + "/ 2021" + "\tTime:" + QString::fromStdString(vhour[i]) + ":" + QString::fromStdString(vmin[i]) + ": 00" + "\nTitle:" + QString::fromStdString(vtitle[i]) + "\nReminder:" + QString::fromStdString(vbody[i]) + "\n\n");
     myfile2.close();
     }
+}
+
+
+void Reminders::on_pushButton_clicked()
+{
+    DashBoard *dsb = new DashBoard();
+    dsb->show();
+    hide();
 }
 
