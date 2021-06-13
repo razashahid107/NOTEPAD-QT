@@ -5,12 +5,10 @@ using namespace std;
 DatabaseHandler::DatabaseHandler(QObject *parent) : QObject(parent)
 {
     Qman = new QNetworkAccessManager(this);
-    // QNetworkAccessManger uploads the data to the .json file in the link belwo
+    // QNetworkAccessManger uploads the data to the .json file in the link below
     // QNetworkManager enstablishes connection with firebase
     Qreply1 = Qman->get(QNetworkRequest(QUrl("https://practice-e90c6-default-rtdb.firebaseio.com/Credentials/.json")));
     connect(Qreply1, &QNetworkReply::readyRead, this, &DatabaseHandler::ReadData);
-    Qreply2 = Qman->get(QNetworkRequest(QUrl("https://practice-e90c6-default-rtdb.firebaseio.com/Reminders/.json")));
-    connect(Qreply2, &QNetworkReply::readyRead, this, &DatabaseHandler::ReadReminders);
 }
 
 void DatabaseHandler::DataEntry(QString first_name, QString last_name, QString username, QString password)
@@ -20,6 +18,7 @@ void DatabaseHandler::DataEntry(QString first_name, QString last_name, QString u
     newEntry["First Name"] = first_name;
     newEntry["Second Name"] = last_name;
     newEntry["Password"] = password;
+    newEntry ["Number"] = 0;
     // creating a json file
     QJsonDocument enterDocs = QJsonDocument::fromVariant(newEntry);
     string strusername = username.toStdString();
@@ -29,6 +28,18 @@ void DatabaseHandler::DataEntry(QString first_name, QString last_name, QString u
     QNetworkRequest qreq((QUrl(URL)));
     qreq.setHeader(QNetworkRequest::ContentTypeHeader, QString("application/json"));
     Qman->put(qreq, enterDocs.toJson());
+
+    QVariantMap newEntry2;
+    newEntry2 ["Number"] = 0;
+    // creating a json file
+    QJsonDocument enterDocs2 = QJsonDocument::fromVariant(newEntry2);
+    string strusername2 = username.toStdString();
+    string strURL1 = "https://practice-e90c6-default-rtdb.firebaseio.com/Counting/" + strusername2 + ".json";
+    QString URL1 = QString::fromStdString(strURL1);
+    // uploads the username to the url
+    QNetworkRequest qreq2((QUrl(URL1)));
+    qreq2.setHeader(QNetworkRequest::ContentTypeHeader, QString("application/json"));
+    Qman->put(qreq2, enterDocs2.toJson());
 }
 
 DatabaseHandler::~DatabaseHandler()
@@ -75,41 +86,3 @@ void DatabaseHandler::ReadData()
     myfile.close();
 }
 
-void DatabaseHandler::ReadReminders()
-{
-    QString firebaseReminders = Qreply2->readAll();
-    QDir qdirectory;
-    fstream myfile;
-    QString qtfilename = qdirectory.currentPath() + "/Reminders.csv";
-    string filename = qtfilename.toStdString();
-    qDebug() << firebaseReminders;
-    myfile.open(filename, ios::out);
-    string strfirebaseReminders = firebaseReminders.toStdString();
-    for (int i = 0; i < strfirebaseReminders.length(); i++)
-    {
-        if (strfirebaseReminders[i] == '{')
-        {
-            strfirebaseReminders[i] = ' ';
-        }
-
-        else if (strfirebaseReminders[i] == ':')
-        {
-            strfirebaseReminders[i] = ',';
-        }
-        else if (strfirebaseReminders[i] == '}' && strfirebaseReminders[i + 1] == ',')
-        {
-            strfirebaseReminders[i] = '\n';
-            strfirebaseReminders[i + 1] = ' ';
-        }
-        else if (strfirebaseReminders[i] == '}' && strfirebaseReminders[i + 1] == '}')
-        {
-            strfirebaseReminders[i] = '\n';
-        }
-        else if (strfirebaseReminders[i] == '}')
-        {
-            strfirebaseReminders[i] = ',';
-        }
-    }
-    myfile << strfirebaseReminders << '\n';
-    myfile.close();
-}

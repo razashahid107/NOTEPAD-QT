@@ -27,9 +27,18 @@ class MainWindow : public QMainWindow
 private:
     string setUsername;
     string setPassword;
+    string number;
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void setNumber(string no){
+        number = no;
+    }
+    string getNumber(){
+        qDebug() << QString::fromStdString(number);
+        return number;
+    }
+    void Readconting();
     ~MainWindow();
 
 private slots:
@@ -39,5 +48,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QNetworkAccessManager *Qman;
+    QNetworkReply *Qreply1;
 };
 #endif // MAINWINDOW_H

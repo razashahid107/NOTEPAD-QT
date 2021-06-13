@@ -15,62 +15,6 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="3" column="1">
-     <widget class="QLabel" name="label_2">
-      <property name="font">
-       <font>
-        <family>Serifa</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Set Time:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="4" colspan="2">
-     <widget class="QTimeEdit" name="timeEdit">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1" rowspan="2" colspan="5">
-     <widget class="QCalendarWidget" name="calender"/>
-    </item>
-    <item row="3" column="2" colspan="2">
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>76</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="5" column="3" colspan="2">
-     <widget class="QPushButton" name="save_pushButton">
-      <property name="text">
-       <string>Save</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="5">
-     <widget class="QPushButton" name="exit_pushButton">
-      <property name="text">
-       <string>Exit</string>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label">
       <property name="font">
@@ -86,10 +30,7 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0" rowspan="4">
-     <widget class="QPlainTextEdit" name="reminderBody"/>
-    </item>
-    <item row="1" column="0">
+    <item row="1" column="0" colspan="2">
      <widget class="QPlainTextEdit" name="reminderTitle">
       <property name="maximumSize">
        <size>
@@ -99,7 +40,42 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="3">
+    <item row="1" column="2" rowspan="2" colspan="3">
+     <widget class="QCalendarWidget" name="calender"/>
+    </item>
+    <item row="2" column="0" rowspan="2" colspan="2">
+     <widget class="QPlainTextEdit" name="reminderBody"/>
+    </item>
+    <item row="3" column="2">
+     <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <family>Serifa</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Set Time:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3" colspan="2">
+     <widget class="QTimeEdit" name="timeEdit">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="5">
+     <widget class="QPlainTextEdit" name="reminderdisplay"/>
+    </item>
+    <item row="5" column="1">
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -107,23 +83,31 @@
       <property name="sizeHint" stdset="0">
        <size>
         <width>20</width>
-        <height>197</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="5" column="1" colspan="2">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>111</width>
         <height>20</height>
        </size>
       </property>
      </spacer>
+    </item>
+    <item row="5" column="3">
+     <widget class="QPushButton" name="save_pushButton">
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QPushButton" name="exit_pushButton">
+      <property name="text">
+       <string>Display Latest</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="4">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Exit</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

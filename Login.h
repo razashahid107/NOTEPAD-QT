@@ -162,4 +162,18 @@ public:
         string f_str(vecdec.begin(), vecdec.end());
         return f_str;
     }
+
+    void setremainderno(string username, int number){
+        qDebug() << number;
+        QNetworkAccessManager *Qman;
+        Qman = new QNetworkAccessManager();
+        QVariantMap newEntry;
+        newEntry ["Number"] = number+1;
+        QJsonDocument  docs = QJsonDocument::fromVariant(newEntry);
+        string strURL = "https://practice-e90c6-default-rtdb.firebaseio.com/Counting/" + username +".json";
+        QString URL = QString::fromStdString(strURL);
+        QNetworkRequest qreq((QUrl(URL)));
+        qreq.setHeader(QNetworkRequest::ContentTypeHeader, QString("application/json"));
+        Qman->put(qreq, docs.toJson());
+    }
 };

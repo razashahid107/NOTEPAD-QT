@@ -14,6 +14,19 @@ MainWindow::MainWindow(QWidget *parent)
     dbh->display();
 }
 
+void MainWindow::Readconting()
+{
+    QString firebaseReminders = Qreply1->readAll();
+    qDebug() << firebaseReminders;
+    QDir qdirectory;
+    fstream myfile;
+    QString qtfilename = qdirectory.currentPath() + "/number.txt";
+    string filename = qtfilename.toStdString();
+    myfile.open(filename, ios::out);
+    myfile << firebaseReminders.toStdString();
+    myfile.close();
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -37,20 +50,20 @@ void MainWindow::on_pushButton_Login_clicked()
     }
 
     if (password_check == 1){
-        string line, username, temp, garbage, firstname, secondname, password;
-        vector<string> row;
+        string line, username, temp, garbage, firstname, secondname, password, Number;
         bool check = false;
         QDir qdirectory;
         fstream myfile;
         QString qtfilename = qdirectory.currentPath() + "/login.csv";
         string filename = qtfilename.toStdString();
         myfile.open(filename, ios::in);
-        stringstream s(line);
         str_Username =  " \"" + str_Username + "\"";
         str_password =  "\"" + str_password + "\"";
         while (getline(myfile, username, ',') && check == false) {
             getline(myfile, garbage, ',');
             getline(myfile, firstname, ',');
+            getline(myfile, garbage, ',');
+            getline(myfile, Number, ',');
             getline(myfile, garbage, ',');
             getline(myfile, password, ',');
             getline(myfile, garbage, ',');
@@ -75,15 +88,18 @@ void MainWindow::on_pushButton_Login_clicked()
         }
         myfile.close();
      }
-    fstream myfile2;
+    fstream myfile3;
     QDir qdirectory2;
     QString qtfilename = qdirectory2.currentPath() + "/initialscrcheck.csv";
     string filename2 = qtfilename.toStdString();
-    myfile2.open(filename2, ios::out);
+    myfile3.open(filename2, ios::out);
     setUsername = Username.toStdString();
     setPassword = Password.toStdString();
     Login lg;
-    myfile2 << lg.encr(Username.toStdString()) << ',' << lg.encr(Password.toStdString()) << '\n';
+    myfile3 << lg.encr(Username.toStdString()) << ',' << lg.encr(Password.toStdString()) << '\n';
+    Qman = new QNetworkAccessManager(this);
+    Qreply1 = Qman->get(QNetworkRequest(QUrl("https://practice-e90c6-default-rtdb.firebaseio.com/Counting/" + QString::fromStdString(setUsername) + "/Number" + ".json")));
+    connect(Qreply1, &QNetworkReply::readyRead, this, &MainWindow::Readconting);
 }
 
 void MainWindow::on_pushButton_clicked()
