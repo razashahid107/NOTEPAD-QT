@@ -30,6 +30,13 @@
       <property name="calendarPopup">
        <bool>false</bool>
       </property>
+      <property name="time">
+       <time>
+        <hour>3</hour>
+        <minute>0</minute>
+        <second>0</second>
+       </time>
+      </property>
      </widget>
     </item>
     <item row="2" column="0" colspan="3">

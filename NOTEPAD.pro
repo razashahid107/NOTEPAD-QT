@@ -18,6 +18,7 @@ SOURCES += \
     initialscr.cpp \
     main.cpp \
     mainwindow.cpp \
+    mythread.cpp \
     notepad.cpp \
     register.cpp \
     reminders.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     Login.h \
     initialscr.h \
     mainwindow.h \
+    mythread.h \
     notepad.h \
     register.h \
     reminders.h \

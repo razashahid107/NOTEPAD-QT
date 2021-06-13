@@ -72,6 +72,12 @@ void Reminders::on_save_pushButton_clicked()
     QNetworkRequest qreq((QUrl(URL)));
     qreq.setHeader(QNetworkRequest::ContentTypeHeader, QString("application/json"));
     Qman->put(qreq, docs.toJson());
+    QDir qdirec4;
+    fstream myfile4;
+    QString qtfilename4 = qdirec4.currentPath() + "/Reminders.csv";
+    string filename4 = qtfilename4.toStdString();
+    myfile4.open(filename4, ios::out | ios::app);
+    myfile4 << "Body" << ',' << body.toStdString() << ',' << "DOM" << ',' << date_day.toStdString() << ','<< "Hour" << ',' << time_hour.toStdString() << ',' << "Minute" << ',' << time_min.toStdString() << ',' << "Month" << ',' << date_month.toStdString() << ',' << "Title" << ',' << title.toStdString() << ',' << "Year" << ',' << date_year.toStdString() << '\n';
 }
 
 void Reminders::ReadReminders()
@@ -115,7 +121,7 @@ void Reminders::ReadReminders()
             strfirebaseReminders[i] = ',';
         }
     }
-    myfile << strfirebaseReminders << '\n';
+    myfile << strfirebaseReminders/* << '\n'*/;
     myfile.close();
 }
 
@@ -187,7 +193,7 @@ void Reminders::on_exit_pushButton_clicked()
         getline(myfile2, garbage, ',');
         getline(myfile2, garbage, '\n');
     }
-    for (int i = 0; i < vtitle.size()-1; i++){
+    for (int i = 0; i < vtitle.size(); i++){
     ui->reminderdisplay->appendPlainText(QString::number(i+1) + ".\n" + "Date: " + QString::fromStdString(vdate[i]) + "/" + QString::fromStdString(vmonth[i]) + "/ 2021" + "\tTime:" + QString::fromStdString(vhour[i]) + ":" + QString::fromStdString(vmin[i]) + ": 00" + "\nTitle:" + QString::fromStdString(vtitle[i]) + "\nReminder:" + QString::fromStdString(vbody[i]) + "\n\n");
     myfile2.close();
     }
