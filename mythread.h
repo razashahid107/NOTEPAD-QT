@@ -7,11 +7,11 @@
 
 using namespace std;
 
-class MyThread: public QThread
+class MyThread:public QThread    // Inherited QThread
 {
 public:
     MyThread();
-    void run();
+    void run();         // Virtual Function Override via QThread Class
 };
 
 #endif // MYTHREAD_H

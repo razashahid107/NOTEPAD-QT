@@ -1,6 +1,7 @@
 #include "reminders.h"
 #include "ui_reminders.h"
 #include <unistd.h>
+#include <QDesktopServices>
 
 Reminders::Reminders(QWidget *parent) :
     QMainWindow(parent),
@@ -10,6 +11,7 @@ Reminders::Reminders(QWidget *parent) :
     ui->reminderTitle->setPlaceholderText("Enter Title");
     ui->reminderBody->setPlaceholderText("Enter Reminder");
     this->setWindowState(Qt::WindowMaximized);
+    ui->timeEdit->setTime(QTime::currentTime());
     fstream myfile;
     QDir qdirectory;
     QString qtfilename = qdirectory.currentPath() + "/initialscrcheck.csv";
@@ -77,7 +79,15 @@ void Reminders::on_save_pushButton_clicked()
     QString qtfilename4 = qdirec4.currentPath() + "/Reminders.csv";
     string filename4 = qtfilename4.toStdString();
     myfile4.open(filename4, ios::out | ios::app);
-    myfile4 << "Body" << ',' << body.toStdString() << ',' << "DOM" << ',' << date_day.toStdString() << ','<< "Hour" << ',' << time_hour.toStdString() << ',' << "Minute" << ',' << time_min.toStdString() << ',' << "Month" << ',' << date_month.toStdString() << ',' << "Title" << ',' << title.toStdString() << ',' << "Year" << ',' << date_year.toStdString() << '\n';
+    myfile4 << "Body" << ',' << body.toStdString() << ',' << "DOM" << ','
+            << date_day.toStdString() << ','<< "Hour" << ',' << time_hour.toStdString()
+            << ',' << "Minute" << ',' << time_min.toStdString() << ',' << "Month" << ','
+            << date_month.toStdString() << ',' << "Title" << ',' << title.toStdString()
+            << ',' << "Year" << ',' << date_year.toStdString() << '\n';
+
+    ui->saving_msg->setText("Note Saved");
+    ui->reminderTitle->clear();
+    ui->reminderBody->clear();
 }
 
 void Reminders::ReadReminders()
@@ -121,12 +131,13 @@ void Reminders::ReadReminders()
             strfirebaseReminders[i] = ',';
         }
     }
-    myfile << strfirebaseReminders/* << '\n'*/;
+    myfile << strfirebaseReminders;
     myfile.close();
 }
 
 void Reminders::on_exit_pushButton_clicked()
 {
+    ui->reminderdisplay->clear();
     Reminders rmd;
     string line, username, temp, garbage, month, date, hour, minute, body, title;
     vector<string> vbody;
@@ -205,5 +216,132 @@ void Reminders::on_pushButton_clicked()
     DashBoard *dsb = new DashBoard();
     dsb->show();
     hide();
+}
+
+
+void Reminders::on_pushButton_2_clicked()
+{
+    string line, username, temp, garbage, month, date, hour, minute, body, title;
+    vector<string> vbody;
+    vector<string> vtitle;
+    vector<string> vmonth;
+    vector<string> vdate;
+    vector<string> vhour;
+    vector<string> vmin;
+    bool check = false;
+    QDir qdirectory2;
+    fstream myfile2;
+    QString qtfilename2 = qdirectory2.currentPath() + "/Reminders.csv";
+    string filename2 = qtfilename2.toStdString();
+    myfile2.open(filename2, ios::in);
+    while (getline(myfile2, garbage, ',') && check == false) {
+        getline(myfile2, body, ',');
+        for (int i = 0; i < body.length(); i++)
+        {
+            if (body[i] == '"')
+                body[i] = ' ';
+        }
+        vbody.push_back(body);
+        getline(myfile2, garbage, ',');
+        getline(myfile2, date, ',');
+        for (int i = 0; i < date.length(); i++)
+        {
+            if (date[i] == '"')
+                date[i] = ' ';
+        }
+        vdate.push_back(date);
+        getline(myfile2, garbage, ',');
+        getline(myfile2, hour, ',');
+        for (int i = 0; i < hour.length(); i++)
+        {
+            if (hour[i] == '"')
+                hour[i] = ' ';
+        }
+        vhour.push_back(hour);
+        getline(myfile2, garbage, ',');
+        getline(myfile2, minute, ',');
+        for (int i = 0; i < minute.length(); i++)
+        {
+            if (minute[i] == '"')
+                minute[i] = ' ';
+        }
+        vmin.push_back(minute);
+        getline(myfile2, garbage, ',');
+        getline(myfile2, month, ',');
+        for (int i = 0; i < month.length(); i++)
+        {
+            if (month[i] == '"')
+                month[i] = ' ';
+        }
+        vmonth.push_back(month);
+        getline(myfile2, garbage, ',');
+        getline(myfile2, title, ',');
+        for (int i = 0; i < title.length(); i++)
+        {
+            if (title[i] == '"')
+                title[i] = ' ';
+        }
+        vtitle.push_back(title);
+        getline(myfile2, garbage, ',');
+        getline(myfile2, garbage, '\n');
+    }
+    for (int i = 0; i < vdate.size(); i++){
+        int ihour = stoi(vhour[i]);
+        int imin = stoi(vmin[i]);
+        int idate = stoi(vdate[i]);
+        int imonth = stoi(vmonth[i]);
+        if (imonth == QDate::currentDate().month()){
+            if (idate == QDate::currentDate().day()){
+                if (ihour == QTime::currentTime().hour()){
+                    if (QString::number(imin) == QString::number(QTime::currentTime().minute())){
+                        QMessageBox::about(this, QString::fromStdString(vtitle[i]), QString::fromStdString(vbody[i]));
+                    }
+                }
+            }
+        }
+
+    }
+    myfile2.close();
+}
+
+
+void Reminders::on_actionSave_triggered()
+{
+    on_save_pushButton_clicked();
+}
+
+
+void Reminders::on_actionDisplay_Reminders_triggered()
+{
+    on_exit_pushButton_clicked();
+}
+
+
+void Reminders::on_actionExit_Reminders_triggered()
+{
+    on_pushButton_clicked();
+}
+
+
+void Reminders::on_actionNotes_triggered()
+{
+    Notepad nui;
+    nui.show();
+    hide();
+}
+
+
+void Reminders::on_actionEvents_triggered()
+{
+    Events eui;
+    eui.show();
+    hide();
+}
+
+
+void Reminders::on_actionNo_Help_triggered()
+{
+    QString link = "http://www.google.com";
+    QDesktopServices::openUrl(QUrl(link));
 }
 

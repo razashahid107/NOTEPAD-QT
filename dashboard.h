@@ -25,6 +25,8 @@ private slots:
 
     void on_Reminder_pb_clicked();
 
+    void on_actionLogout_triggered();
+
 private:
     Ui::DashBoard *ui;
 };

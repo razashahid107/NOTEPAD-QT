@@ -39,6 +39,20 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
+    void on_actionSave_triggered();
+
+    void on_actionDisplay_Reminders_triggered();
+
+    void on_actionExit_Reminders_triggered();
+
+    void on_actionNotes_triggered();
+
+    void on_actionEvents_triggered();
+
+    void on_actionNo_Help_triggered();
+
 private:
     Ui::Reminders *ui;
     QNetworkAccessManager *Qman;

@@ -29,5 +29,6 @@
         <file>Resources_Images/Blue_Background</file>
         <file>Resources_Images/display.png</file>
         <file>Resources_Images/exit.png</file>
+        <file>Resources_Images/bell.png</file>
     </qresource>
 </RCC>

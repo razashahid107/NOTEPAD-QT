@@ -37,3 +37,17 @@ void DashBoard::on_Events_pb_clicked()
     hide();
 }
 
+
+void DashBoard::on_actionLogout_triggered()
+{
+    // will push back to the main window when Logout is clicked
+    QDir qdirectory2;
+    QString qtfilename = qdirectory2.currentPath() + "/initialscrcheck.csv";
+    string filename2 = qtfilename.toStdString();
+    qdirectory2.remove(qtfilename);
+    MainWindow *mui;
+    mui = new MainWindow(this);
+    mui->show();
+    hide();
+}
+
