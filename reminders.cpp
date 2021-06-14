@@ -325,16 +325,18 @@ void Reminders::on_actionExit_Reminders_triggered()
 
 void Reminders::on_actionNotes_triggered()
 {
-    Notepad nui;
-    nui.show();
+    Notepad *nui;
+    nui = new Notepad();
+    nui->show();
     hide();
 }
 
 
 void Reminders::on_actionEvents_triggered()
 {
-    Events eui;
-    eui.show();
+    Events *eui;
+    eui = new Events();
+    eui->show();
     hide();
 }
 
