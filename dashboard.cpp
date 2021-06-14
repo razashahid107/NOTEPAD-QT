@@ -13,8 +13,8 @@ DashBoard::~DashBoard()
     delete ui;
 }
 
-void DashBoard::on_Note_pb_clicked()
-{
+//void DashBoard::on_Note_pb_clicked()
+//{
 
-}
+//}
 

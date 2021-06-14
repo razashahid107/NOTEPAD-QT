@@ -29,6 +29,8 @@ private slots:
 
     void on_save_pushButton_clicked();
 
+    void on_exit_pushButton_clicked();
+
 private:
     Ui::Reminders *ui;
     QNetworkAccessManager *Qman;

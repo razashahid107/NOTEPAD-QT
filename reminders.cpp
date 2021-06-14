@@ -16,12 +16,16 @@ Reminders::Reminders(QWidget *parent) :
     myfile.open(filename, ios::in);
     getline(myfile, username, ',');
     username = lg.decrypt(username);
+
 }
 
 Reminders::~Reminders()
 {
     delete ui;
     delete Qman;
+    Notepad *nui;
+    nui = new Notepad(this);
+    nui->show();
 }
 
 
@@ -55,3 +59,9 @@ void Reminders::on_save_pushButton_clicked()
     qreq.setHeader(QNetworkRequest::ContentTypeHeader, QString("application/json"));
     Qman->put(qreq, docs.toJson());
 }
+
+void Reminders::on_exit_pushButton_clicked()
+{
+
+}
+

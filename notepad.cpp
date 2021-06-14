@@ -104,7 +104,7 @@ void Notepad::on_actionReminder_triggered()
     Reminders *rui;
     rui = new Reminders();
     rui->show();
-    this->hide();
+//    this->hide();
 }
 
 void Notepad::on_Copy_push_button_clicked()
