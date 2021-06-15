@@ -48,3 +48,16 @@ void DashBoard::on_Tasks_pb_2_clicked()                 // Quit
 
 }
 
+
+void DashBoard::on_Tasks_pb_clicked()
+{
+    QDir qdirectory2;
+    QString qtfilename = qdirectory2.currentPath() + "/initialscrcheck.csv";
+    string filename2 = qtfilename.toStdString();
+    qdirectory2.remove(qtfilename);
+    this->hide();
+    MainWindow mui;
+    mui.setModal(true);
+    mui.exec();
+}
+
