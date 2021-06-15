@@ -11,12 +11,11 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    CheckDatabase.cpp \
     dashboard.cpp \
     databasehandler.cpp \
     events.cpp \
-    initialscr.cpp \
     main.cpp \
+    initialscr.cpp \
     mainwindow.cpp \
     mythread.cpp \
     notepad.cpp \
@@ -25,11 +24,11 @@ SOURCES += \
     welcome.cpp
 
 HEADERS += \
+    Login.h \
     dashboard.h \
     databasehandler.h \
     events.h \
     functions.h \
-    Login.h \
     initialscr.h \
     mainwindow.h \
     mythread.h \
@@ -52,9 +51,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-DISTFILES += \
-    credentials.csv
 
 RESOURCES += \
     Resources.qrc

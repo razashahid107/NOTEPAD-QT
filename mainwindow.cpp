@@ -1,16 +1,16 @@
-﻿#include "mainwindow.h"
+#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     this->setWindowState(Qt::WindowMaximized);
     ui->groupBox->setPalette(QPalette(Qt::white));
     ui->lineEdit_email->setPlaceholderText("Username");
     ui->lineEdit_Password->setPlaceholderText("Password");
-    DatabaseHandler *dbh = new DatabaseHandler();
+    dbh = new DatabaseHandler();
     dbh->display();
 }
 
@@ -30,6 +30,7 @@ void MainWindow::Readconting()
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete dbh;
 }
 
 void MainWindow::on_pushButton_Login_clicked()
@@ -44,7 +45,6 @@ void MainWindow::on_pushButton_Login_clicked()
 
 
     if (pass_length < 6){
-        ui->statusbar->showMessage("Password not entered or less than 6 characters entered", 4000);
         ui->lineEdit_Password->clear();
         password_check = 0;
     }
@@ -71,18 +71,16 @@ void MainWindow::on_pushButton_Login_clicked()
             if (username == str_Username){
                 check = true;
                 if(password == str_password){
-                    DashBoard *dsb = new DashBoard();
-                    dsb->show();
+                    DashBoard dsb;
+                    dsb.setModal(true);
                     this->hide();
                 }
                 else{
-                    ui->label_wronpassword->setText("Wrong Password");
-                    ui->statusbar->showMessage("Please Enter correct Password", 5000);
+                    ui->label_2->setText("Wrong Password");
                 }
             }
             else {
                 ui->label->setText("Username or Password is Incorrect");
-                ui->statusbar->showMessage("Please Enter correct Username and Password", 5000);
             }
         }
         myfile.close();
@@ -104,8 +102,8 @@ void MainWindow::on_pushButton_Login_clicked()
 void MainWindow::on_pushButton_clicked()
 {
     hide();
-    Register *mui;
-    mui = new Register(this);
-    mui->show();
+    Register mui;
+    mui.setModal(true);
+    mui.exec();
     this->hide();
 }

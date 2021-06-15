@@ -1,9 +1,8 @@
 #include "events.h"
 #include "ui_events.h"
-#include <fstream>
 
 Events::Events(QWidget *parent) :
-    QMainWindow(parent),
+    QDialog(parent),
     ui(new Ui::Events)
 {
     ui->setupUi(this);
@@ -91,7 +90,3 @@ void Events::on_pushButton_clicked()
         QString Prev_Data = ui->Previous_Event->toPlainText();
 
 }
-
-
-
-

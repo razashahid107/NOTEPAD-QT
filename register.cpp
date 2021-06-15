@@ -1,35 +1,30 @@
 #include "register.h"
 #include "ui_register.h"
-#include "functions.h"
-#include <cstdio>
-#include <QDir>
-#include <QtTest>
-#include <unistd.h>
 
 Register::Register(QWidget *parent) :
-    QMainWindow(parent),
+    QDialog(parent),
     ui(new Ui::Register)
 {
     ui->setupUi(this);
     this->setWindowState(Qt::WindowMaximized);
-    ui->qtfirstname->setPlaceholderText("First Name");
-    ui->qtsecondname->setPlaceholderText("Second Name");
-    ui->qtemail->setPlaceholderText("Username");
-    ui->qtpassword->setPlaceholderText("Password");
-    ui->qtconfirmpassword->setPlaceholderText("Confirm Password");
+    ui->qtfirstname_2->setPlaceholderText("First Name");
+    ui->qtsecondname_2->setPlaceholderText("Second Name");
+    ui->qtemail_2->setPlaceholderText("Username");
+    ui->qtpassword_2->setPlaceholderText("Password");
+    ui->qtconfirmpassword_2->setPlaceholderText("Confirm Password");
 }
 
 QString Register::getUserName(){
-    return ui->qtemail->text();
+    return ui->qtemail_2->text();
 }
 
-void Register::on_Register_button_clicked()
+void Register::on_Register_button_2_clicked()
 {
-    QString qfname = ui->qtfirstname->text();
-    QString qsname = ui->qtsecondname->text();
-    QString qusername = ui->qtemail->text();
-    QString qpassword = ui->qtpassword->text();
-    QString qconfirmpassword = ui->qtconfirmpassword->text();
+    QString qfname = ui->qtfirstname_2->text();
+    QString qsname = ui->qtsecondname_2->text();
+    QString qusername = ui->qtemail_2->text();
+    QString qpassword = ui->qtpassword_2->text();
+    QString qconfirmpassword = ui->qtconfirmpassword_2->text();
     string fname =qfname.toStdString();
     string sname =qsname.toStdString();
     string username =qusername.toStdString();
@@ -56,8 +51,8 @@ void Register::on_Register_button_clicked()
         getline(myfile, garbage, ',');
         getline(myfile, secondname, '\n');
         if (user_name == tusername){
-           ui->statusbar->showMessage("Username already Exists");
-           ui->qtemail->clear();
+           ui->statusbar->setText("Username already Exists");
+           ui->qtemail_2->clear();
            check = true;
         }
     }
@@ -65,35 +60,35 @@ void Register::on_Register_button_clicked()
 
     if (name_length == 0){
         name_check = 0;
-        ui->statusbar->showMessage("First Name not entered", 4000);
+        ui->statusbar->setText("First Name not entered");
     }
 
     if (pass_length < 6){
-        ui->statusbar->showMessage("Password or Confirm Password not entered or less than 6 characters entered", 4000);
-        ui->qtpassword->clear();
-        ui->qtconfirmpassword->clear();
+        ui->statusbar->setText("Password or Confirm Password not entered or less than 6 characters entered");
+        ui->qtpassword_2->clear();
+        ui->qtconfirmpassword_2->clear();
         password_check = 0;
     }
 
     else if (password != confirmpassword){
-        ui->statusbar->showMessage("Password and Confirm Password Mis-match", 4000);
-        ui->qtpassword->clear();
-        ui->qtconfirmpassword->clear();
+        ui->statusbar->setText("Password and Confirm Password Mis-match");
+        ui->qtpassword_2->clear();
+        ui->qtconfirmpassword_2->clear();
         password_check = 0;
     }
 
     if (username.length() < 3){
-        ui->statusbar->showMessage("Total Characters are less than 3 Characters", 4000);
-        ui->qtemail->clear();
+        ui->statusbar->setText("Total Characters are less than 3 Characters");
+        ui->qtemail_2->clear();
     }
     if (password_check == 1 && name_check == 1 && check == false)
     {
         dbh = new DatabaseHandler(this);
         dbh->DataEntry(qfname, qsname, qusername, qpassword);
         myfile.close();
-        Welcome *nui;
-        nui = new Welcome(this);
-        nui->show();
+        Welcome nui;
+        nui.setModal(true);
+        nui.exec();
         this->hide();
     }
 }
@@ -103,11 +98,11 @@ Register::~Register()
     delete ui;
 }
 
-void Register::on_pushButton_clicked()
+void Register::on_pushButton_2_clicked()
 {
     dbh = new DatabaseHandler(this);
-    MainWindow *mui;
-    mui = new MainWindow(this);
-    mui->show();
+    MainWindow mui;
+    mui.setModal(true);
+    mui.exec();
     hide();
 }

@@ -8,9 +8,9 @@
 
 using namespace std;
 
-namespace Ui {
-class Initialscr;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class Initialscr; }
+QT_END_NAMESPACE
 
 class Initialscr : public QMainWindow
 {

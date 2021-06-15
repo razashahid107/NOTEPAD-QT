@@ -9,19 +9,19 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <fstream>
-#include <QMainWindow>
 #include <QMessageBox>
 #include "register.h"
 #include "Login.h"
-#include "notepad.h"
+#include "dashboard.h"
 
 using namespace std;
+#include <QDialog>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+namespace Ui {
+class MainWindow;
+}
 
-class MainWindow : public QMainWindow
+class MainWindow : public QDialog
 {
     Q_OBJECT
 private:
@@ -50,5 +50,6 @@ private:
     Ui::MainWindow *ui;
     QNetworkAccessManager *Qman;
     QNetworkReply *Qreply1;
+    DatabaseHandler *dbh;
 };
 #endif // MAINWINDOW_H

@@ -1,14 +1,14 @@
 #ifndef WELCOME_H
 #define WELCOME_H
 
-#include <QMainWindow>
+#include <QDialog>
 #include "mainwindow.h"
 
 namespace Ui {
 class Welcome;
 }
 
-class Welcome : public QMainWindow
+class Welcome : public QDialog
 {
     Q_OBJECT
 

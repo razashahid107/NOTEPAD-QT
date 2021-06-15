@@ -1,10 +1,9 @@
 #include "reminders.h"
 #include "ui_reminders.h"
-#include <unistd.h>
 #include <QDesktopServices>
 
 Reminders::Reminders(QWidget *parent) :
-    QMainWindow(parent),
+    QDialog(parent),
     ui(new Ui::Reminders)
 {
     ui->setupUi(this);
@@ -213,9 +212,10 @@ void Reminders::on_exit_pushButton_clicked()
 
 void Reminders::on_pushButton_clicked()
 {
-    DashBoard *dsb = new DashBoard();
-    dsb->show();
-    hide();
+    DashBoard dsb;
+    dsb.setModal(true);
+    dsb.exec();
+    this->hide();
 }
 
 
@@ -303,47 +303,3 @@ void Reminders::on_pushButton_2_clicked()
     }
     myfile2.close();
 }
-
-
-void Reminders::on_actionSave_triggered()
-{
-    on_save_pushButton_clicked();
-}
-
-
-void Reminders::on_actionDisplay_Reminders_triggered()
-{
-    on_exit_pushButton_clicked();
-}
-
-
-void Reminders::on_actionExit_Reminders_triggered()
-{
-    on_pushButton_clicked();
-}
-
-
-void Reminders::on_actionNotes_triggered()
-{
-    Notepad *nui;
-    nui = new Notepad();
-    nui->show();
-    hide();
-}
-
-
-void Reminders::on_actionEvents_triggered()
-{
-    Events *eui;
-    eui = new Events();
-    eui->show();
-    hide();
-}
-
-
-void Reminders::on_actionNo_Help_triggered()
-{
-    QString link = "http://www.google.com";
-    QDesktopServices::openUrl(QUrl(link));
-}
-

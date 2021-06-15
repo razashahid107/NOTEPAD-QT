@@ -1,57 +1,51 @@
 #ifndef NOTEPAD_H
 #define NOTEPAD_H
 
-#include <QMainWindow>
-#include "databasehandler.h"
-#include "reminders.h"
-#include <fstream>
+#include <QDialog>
+#include "mainwindow.h"
+#include <reminders.h>
+
+using namespace std;
 
 namespace Ui {
 class Notepad;
 }
 
-class Notepad : public QMainWindow
+class Notepad : public QDialog
 {
     Q_OBJECT
 private:
-    string FileAddress = "";
+    std::string FileAddress = "";
+
 public:
     explicit Notepad(QWidget *parent = nullptr);
+    void setAddress(string);
+    string getAddress();
+    void on_actionOpen_triggered();
     ~Notepad();
 
 private slots:
-
     void on_save_pushbutton_clicked();
 
-    void on_actionCopy_triggered();
-
-    void on_actionCut_triggered();
-
-    void on_actionPaste_triggered();
-
-    void on_actionUndo_triggered();
-
-    void on_actionRedo_triggered();
-
-    void on_actionLogout_triggered();
-
-    void on_actionSave_triggered();
-
-    void on_actionReminder_triggered();
-    
     void on_Copy_push_button_clicked();
+
+    void on_save_pushbutton_2_clicked();
 
     void on_Cut_Push_Button_clicked();
 
     void on_Paste_Push_Button_clicked();
 
-    void on_save_pushbutton_2_clicked();
+    void on_Reminders_clicked();
 
-    void setAddress(string);
+    void on_Notes_clicked();
 
-    string getAddress();
+    void on_pushButton_clicked();
 
-    void on_actionOpen_triggered();
+    void on_Open_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::Notepad *ui;

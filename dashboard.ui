@@ -1,164 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>DashBoard</class>
- <widget class="QMainWindow" name="DashBoard">
+ <widget class="QDialog" name="DashBoard">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>874</width>
-    <height>407</height>
+    <width>706</width>
+    <height>242</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Dialog</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">background-image: url(:/new/prefix1/Resources_Images/grey.png);</string>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_2">
-    <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout">
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item row="0" column="0">
-       <widget class="QPushButton" name="Note_pb">
-        <property name="font">
-         <font>
-          <family>Nirmala UI</family>
-          <pointsize>24</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="topMargin">
+      <number>46</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="Note_pb">
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
 </string>
-        </property>
-        <property name="text">
-         <string>  NOTES</string>
-        </property>
-        <property name="icon">
-         <iconset resource="Resources.qrc">
-          <normaloff>:/new/prefix1/Resources_Images/notes.png</normaloff>:/new/prefix1/Resources_Images/notes.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>45</width>
-          <height>27</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="Reminder_pb">
-        <property name="font">
-         <font>
-          <family>Nirmala UI</family>
-          <pointsize>24</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string>REMINDERS</string>
-        </property>
-        <property name="icon">
-         <iconset resource="Resources.qrc">
-          <normaloff>:/new/prefix1/Resources_Images/reminder.png</normaloff>:/new/prefix1/Resources_Images/reminder.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>34</width>
-          <height>35</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3">
-       <widget class="QPushButton" name="Tasks_pb">
-        <property name="font">
-         <font>
-          <family>Nirmala UI</family>
-          <pointsize>24</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string> TASKS</string>
-        </property>
-        <property name="icon">
-         <iconset resource="Resources.qrc">
-          <normaloff>:/new/prefix1/Resources_Images/tasks.png</normaloff>:/new/prefix1/Resources_Images/tasks.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>32</width>
-          <height>36</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QPushButton" name="Events_pb">
-        <property name="font">
-         <font>
-          <family>Nirmala UI</family>
-          <pointsize>24</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string>  EVENTS</string>
-        </property>
-        <property name="icon">
-         <iconset resource="Resources.qrc">
-          <normaloff>:/new/prefix1/Resources_Images/events.png</normaloff>:/new/prefix1/Resources_Images/events.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>35</width>
-          <height>36</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>874</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>Menu</string>
-    </property>
-    <addaction name="actionLogout"/>
-   </widget>
-   <addaction name="menuFile"/>
-  </widget>
-  <action name="actionLogout">
-   <property name="icon">
-    <iconset resource="Resources.qrc">
-     <normaloff>:/new/prefix1/Resources_Images/logout.png</normaloff>:/new/prefix1/Resources_Images/logout.png</iconset>
-   </property>
-   <property name="text">
-    <string>Logout</string>
-   </property>
-  </action>
+       </property>
+       <property name="text">
+        <string>  NOTES</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Resources.qrc">
+         <normaloff>:/new/prefix1/Resources_Images/notes.png</normaloff>:/new/prefix1/Resources_Images/notes.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>45</width>
+         <height>27</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Reminder_pb">
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>REMINDERS</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Resources.qrc">
+         <normaloff>:/new/prefix1/Resources_Images/reminder.png</normaloff>:/new/prefix1/Resources_Images/reminder.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>34</width>
+         <height>35</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Events_pb">
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>  EVENTS</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Resources.qrc">
+         <normaloff>:/new/prefix1/Resources_Images/events.png</normaloff>:/new/prefix1/Resources_Images/events.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>36</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>407</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="1">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="topMargin">
+      <number>69</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="Tasks_pb">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string> Logout</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Resources.qrc">
+         <normaloff>:/new/prefix1/Resources_Images/logout.png</normaloff>:/new/prefix1/Resources_Images/logout.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>36</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Tasks_pb_2">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string> Quit    </string>
+       </property>
+       <property name="icon">
+        <iconset resource="Resources.qrc">
+         <normaloff>:/new/prefix1/Resources_Images/quit.png</normaloff>:/new/prefix1/Resources_Images/quit.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>34</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources>
   <include location="Resources.qrc"/>

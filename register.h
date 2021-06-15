@@ -1,19 +1,15 @@
 #ifndef REGISTER_H
 #define REGISTER_H
 
-#include <QMainWindow>
-#include "mainwindow.h"
-#include "notepad.h"
-#include "databasehandler.h"
+#include <QDialog>
 #include "welcome.h"
-
-using namespace std;
+#include <databasehandler.h>
 
 namespace Ui {
 class Register;
 }
 
-class Register : public QMainWindow
+class Register : public QDialog
 {
     Q_OBJECT
 public:
@@ -24,9 +20,9 @@ public:
 private slots:
 
 
-    void on_Register_button_clicked();
+    void on_pushButton_2_clicked();
 
-    void on_pushButton_clicked();
+    void on_Register_button_2_clicked();
 
 private:
     Ui::Register *ui;

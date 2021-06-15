@@ -1,15 +1,14 @@
 #ifndef EVENTS_H
 #define EVENTS_H
 
-#include <QMainWindow>
-#include <QDir>
+#include <QDialog>
 #include <mainwindow.h>
 
 namespace Ui {
 class Events;
 }
 
-class Events : public QMainWindow
+class Events : public QDialog
 {
     Q_OBJECT
 
