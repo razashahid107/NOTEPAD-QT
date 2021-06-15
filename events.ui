@@ -44,16 +44,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="Previous_Event">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>180</y>
-     <width>469</width>
-     <height>81</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
@@ -91,6 +81,23 @@
    </property>
    <property name="text">
     <string>Delete Event</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>180</y>
+     <width>461</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Hello world</string>
    </property>
   </widget>
  </widget>
