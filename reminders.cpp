@@ -7,6 +7,7 @@ Reminders::Reminders(QWidget *parent) :
     ui(new Ui::Reminders)
 {
     ui->setupUi(this);
+    this->setAttribute(Qt::WA_DeleteOnClose);
     ui->reminderTitle->setPlaceholderText("Enter Title");
     ui->reminderBody->setPlaceholderText("Enter Reminder");
     this->setWindowState(Qt::WindowMaximized);
@@ -212,10 +213,10 @@ void Reminders::on_exit_pushButton_clicked()
 
 void Reminders::on_pushButton_clicked()
 {
+    this->hide();
     DashBoard dsb;
     dsb.setModal(true);
     dsb.exec();
-    this->hide();
 }
 
 

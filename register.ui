@@ -55,7 +55,8 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/new/prefix1/Resources_Images/Grey Background.jpg);</string>
+      <string notr="true">background-image: url(:/new/prefix1/Resources_Images/Grey Background.jpg);
+color: white;</string>
      </property>
      <property name="title">
       <string>SignUp</string>
@@ -123,7 +124,7 @@
       <item row="1" column="0">
        <widget class="QPushButton" name="Register_button_2">
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+         <string notr="true">color: white;</string>
         </property>
         <property name="text">
          <string>SignUp</string>
@@ -145,6 +146,9 @@
             <width>150</width>
             <height>16777215</height>
            </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: white;</string>
           </property>
           <property name="text">
            <string>Already have an Account?</string>

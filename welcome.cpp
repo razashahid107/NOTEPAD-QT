@@ -6,6 +6,7 @@ Welcome::Welcome(QWidget *parent) :
     ui(new Ui::Welcome)
 {
     ui->setupUi(this);
+    this->setAttribute(Qt::WA_DeleteOnClose);
     this->setWindowState(Qt::WindowMaximized);
     QDir qdirectory;
     fstream myfile;
@@ -20,8 +21,8 @@ Welcome::~Welcome()
 
 void Welcome::on_pushButton_clicked()
 {
+    this->hide();
     MainWindow mui;
-    mui.setModal(false);
+    mui.setModal(true);
     mui.exec();
-    hide();
 }

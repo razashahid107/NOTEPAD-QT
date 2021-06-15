@@ -6,6 +6,7 @@ Register::Register(QWidget *parent) :
     ui(new Ui::Register)
 {
     ui->setupUi(this);
+    this->setAttribute(Qt::WA_DeleteOnClose);
     this->setWindowState(Qt::WindowMaximized);
     ui->qtfirstname_2->setPlaceholderText("First Name");
     ui->qtsecondname_2->setPlaceholderText("Second Name");
@@ -86,10 +87,10 @@ void Register::on_Register_button_2_clicked()
         dbh = new DatabaseHandler(this);
         dbh->DataEntry(qfname, qsname, qusername, qpassword);
         myfile.close();
+        this->hide();
         Welcome nui;
         nui.setModal(true);
         nui.exec();
-        this->hide();
     }
 }
 
@@ -101,8 +102,8 @@ Register::~Register()
 void Register::on_pushButton_2_clicked()
 {
     dbh = new DatabaseHandler(this);
+    this->hide();
     MainWindow mui;
     mui.setModal(true);
     mui.exec();
-    hide();
 }

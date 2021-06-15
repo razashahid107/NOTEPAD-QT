@@ -16,27 +16,27 @@ DashBoard::~DashBoard()
 
 void DashBoard::on_Note_pb_clicked()
 {
+    this->hide();
     Notepad nui;
     nui.setModal(true);
     nui.exec();
-    this->hide();
 }
 
 
 void DashBoard::on_Reminder_pb_clicked()
 {
+    this->hide();
     Reminders rui;
     rui.setModal(true);
     rui.exec();
-    this->hide();
 }
 
 void DashBoard::on_Events_pb_clicked()
 {
+    this->hide();
     Events eui;
     eui.setModal(true);
     eui.exec();
-    this->hide();
 }
 
 //void QCoreApplication::exit(int returnCode = 0)
