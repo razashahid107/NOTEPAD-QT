@@ -24,5 +24,11 @@
         <file>Resources_Images/Welcome_screen.jpg.png</file>
         <file>Resources_Images/getstarted.png</file>
         <file>Resources_Images/quit.png</file>
+        <file>Resources_Images/grey.png</file>
+        <file>Resources_Images/white.png</file>
+        <file>Resources_Images/Blue_Background</file>
+        <file>Resources_Images/display.png</file>
+        <file>Resources_Images/exit.png</file>
+        <file>Resources_Images/bell.png</file>
     </qresource>
 </RCC>

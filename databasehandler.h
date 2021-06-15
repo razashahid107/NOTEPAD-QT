@@ -30,11 +30,12 @@ public:
 
 signals:
 public slots:
-    bool ReadData();
+    void ReadData();
+//    void ReadReminders();
 
 private:
     QNetworkAccessManager *Qman;
     QNetworkReply *Qreply1;
-    QNetworkReply *Qreply2;
+//    QNetworkReply *Qreply2;
 };
 #endif // DATABASEHANDLER_H

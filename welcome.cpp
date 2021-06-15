@@ -2,7 +2,7 @@
 #include "ui_welcome.h"
 
 Welcome::Welcome(QWidget *parent) :
-    QMainWindow(parent),
+    QDialog(parent),
     ui(new Ui::Welcome)
 {
     ui->setupUi(this);
@@ -20,7 +20,8 @@ Welcome::~Welcome()
 
 void Welcome::on_pushButton_clicked()
 {
-    MainWindow *mui = new MainWindow;
-    mui->show();
+    MainWindow mui;
+    mui.setModal(false);
+    mui.exec();
+    hide();
 }
-
