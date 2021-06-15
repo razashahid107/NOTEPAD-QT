@@ -1,12 +1,12 @@
 #include "dashboard.h"
 #include "ui_dashboard.h"
-#include<QCoreApplication>
 
 DashBoard::DashBoard(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DashBoard)
 {
     ui->setupUi(this);
+    this->setWindowTitle("DashBoard");
 }
 
 DashBoard::~DashBoard()
@@ -16,7 +16,6 @@ DashBoard::~DashBoard()
 
 void DashBoard::on_Note_pb_clicked()
 {
-    this->hide();
     Notepad nui;
     nui.setModal(true);
     nui.exec();
@@ -25,7 +24,6 @@ void DashBoard::on_Note_pb_clicked()
 
 void DashBoard::on_Reminder_pb_clicked()
 {
-    this->hide();
     Reminders rui;
     rui.setModal(true);
     rui.exec();
@@ -33,21 +31,15 @@ void DashBoard::on_Reminder_pb_clicked()
 
 void DashBoard::on_Events_pb_clicked()
 {
-    this->hide();
     Events eui;
     eui.setModal(true);
     eui.exec();
 }
 
-//void QCoreApplication::exit(int returnCode = 0)
-void DashBoard::on_Tasks_pb_2_clicked()                 // Quit
+void DashBoard::on_Tasks_pb_2_clicked()
 {
-//    QPushButton *quitButton = new QPushButton("Quit");
-//    connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::QueuedConnection);
     QCoreApplication::exit();
-
 }
-
 
 void DashBoard::on_Tasks_pb_clicked()
 {
@@ -60,4 +52,3 @@ void DashBoard::on_Tasks_pb_clicked()
     mui.setModal(true);
     mui.exec();
 }
-

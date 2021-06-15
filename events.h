@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include <mainwindow.h>
-#include <QDir>
 
 namespace Ui {
 class Events;

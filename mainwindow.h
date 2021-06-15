@@ -50,6 +50,5 @@ private:
     Ui::MainWindow *ui;
     QNetworkAccessManager *Qman;
     QNetworkReply *Qreply1;
-    DatabaseHandler *dbh;
 };
 #endif // MAINWINDOW_H

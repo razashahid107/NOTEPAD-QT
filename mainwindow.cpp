@@ -6,12 +6,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setAttribute(Qt::WA_DeleteOnClose);
+    this->setWindowTitle("Signin");
     this->setWindowState(Qt::WindowMaximized);
     ui->groupBox->setPalette(QPalette(Qt::white));
     ui->lineEdit_email->setPlaceholderText("Username");
     ui->lineEdit_Password->setPlaceholderText("Password");
-    dbh = new DatabaseHandler();
+    DatabaseHandler *dbh = new DatabaseHandler();
     dbh->display();
 }
 
@@ -31,7 +31,6 @@ void MainWindow::Readconting()
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete dbh;
 }
 
 void MainWindow::on_pushButton_Login_clicked()
@@ -72,10 +71,9 @@ void MainWindow::on_pushButton_Login_clicked()
             if (username == str_Username){
                 check = true;
                 if(password == str_password){
-                    this->hide();
                     DashBoard dsb;
                     dsb.setModal(true);
-                    dsb.exec();
+                    this->hide();
                 }
                 else{
                     ui->label_2->setText("Wrong Password");
@@ -103,8 +101,9 @@ void MainWindow::on_pushButton_Login_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
+    hide();
+    Register *mui;
+    mui = new Register(this);
+    mui->show();
     this->hide();
-    Register mui;
-    mui.setModal(true);
-    mui.exec();
 }

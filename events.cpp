@@ -6,6 +6,7 @@ Events::Events(QWidget *parent) : QDialog(parent),
                                   ui(new Ui::Events)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Events");
     ui->Current_Event->setPlaceholderText("Add a New Event");
     QString path = "C:/Users/User/OneDrive - National University of Sciences & Technology/Uni STUDY/Semester 2/OOP/OOP Proj/NOTEPAD 2/NOTEPAD-QT/SampleEvents"; // assume it is some path
 
@@ -17,7 +18,7 @@ Events::Events(QWidget *parent) : QDialog(parent),
     if (total_files < 2)
     {
         //        ui->Prev_Note_label->setText(text);
-        ui->label_2->setText("No previous events exist. Create your first Event :)");
+        ui->label_2->setPlainText("No previous events exist. Create your first Event :)");
     }
     else
     {
@@ -42,7 +43,7 @@ Events::Events(QWidget *parent) : QDialog(parent),
             {             //read data from file object and put it into string.
                 tp += tp; //print the data of the string
             }
-            ui->label_2->setText(QString::fromStdString((tp)));
+            ui->label_2->setPlainText(QString::fromStdString((tp)));
         }
     }
 }

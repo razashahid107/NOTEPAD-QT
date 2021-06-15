@@ -6,7 +6,7 @@ Notepad::Notepad(QWidget *parent) :
     ui(new Ui::Notepad)
 {
     ui->setupUi(this);
-    this->setAttribute(Qt::WA_DeleteOnClose);
+    this->setWindowTitle("NotePad");
     QDir qdirectory;
     fstream myfile;
     QString qtfilename = qdirectory.currentPath() + "/login.csv";
@@ -89,15 +89,18 @@ void Notepad::on_save_pushbutton_2_clicked()
 
 void Notepad::on_Reminders_clicked()
 {
-    this->hide();
     Reminders rui;
     rui.setModal(true);
     rui.exec();
+    hide();
 }
 
 void Notepad::on_Notes_clicked()      // Events
 {
-
+    this->hide();
+    Events eui;
+    eui.setModal(true);
+    eui.exec();
 }
 
 
@@ -144,10 +147,10 @@ void Notepad::on_pushButton_2_clicked()
     QString qtfilename = qdirectory2.currentPath() + "/initialscrcheck.csv";
     string filename2 = qtfilename.toStdString();
     qdirectory2.remove(qtfilename);
-    this->hide();
     MainWindow mui;
     mui.setModal(true);
     mui.exec();
+    hide();
 }
 
 
@@ -162,8 +165,9 @@ void Notepad::on_pushButton_4_clicked()
     ui->textEdit_notes->redo();
 }
 
-void Notepad::on_Quit_Push_button_clicked()
+
+void Notepad::on_pushButton_3_clicked()
 {
-    QCoreApplication::exit();   // allows us to quit the application as a whole
+    hide();
 }
 

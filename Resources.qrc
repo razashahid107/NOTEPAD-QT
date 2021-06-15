@@ -30,6 +30,5 @@
         <file>Resources_Images/display.png</file>
         <file>Resources_Images/exit.png</file>
         <file>Resources_Images/bell.png</file>
-        <file>Resources_Images/MicrosoftTeams-image.png</file>
     </qresource>
 </RCC>

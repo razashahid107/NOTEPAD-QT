@@ -1,7 +1,7 @@
 #include "initialscr.h"
-#include "mythread.h"
 
 #include <QApplication>
+#include "mythread.h"
 
 int main(int argc, char *argv[])
 {

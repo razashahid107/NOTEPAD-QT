@@ -47,8 +47,7 @@ private slots:
 
     void on_pushButton_4_clicked();
 
-
-    void on_Quit_Push_button_clicked();
+    void on_pushButton_3_clicked();
 
 private:
     Ui::Notepad *ui;
