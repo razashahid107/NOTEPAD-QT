@@ -13,7 +13,7 @@ namespace Ui {class DashBoard;}class DashBoard : public QDialog
      void on_Note_pb_clicked();
      void on_Events_pb_clicked();
      void on_Reminder_pb_clicked();
-     void on_Tasks_pb_2_clicked();
+     void on_Tasks_pb_2_clicked();  // quit wala button
  private:
       Ui::DashBoard *ui;
 };

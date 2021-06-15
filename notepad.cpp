@@ -161,3 +161,8 @@ void Notepad::on_pushButton_4_clicked()
     ui->textEdit_notes->redo();
 }
 
+void Notepad::on_Quit_Push_button_clicked()
+{
+    QCoreApplication::exit();   // allows us to quit the application as a whole
+}
+
