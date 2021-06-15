@@ -21,8 +21,8 @@ Welcome::~Welcome()
 
 void Welcome::on_pushButton_clicked()
 {
+    this->hide();
     MainWindow mui;
     mui.setModal(true);
     mui.exec();
-    hide();
 }

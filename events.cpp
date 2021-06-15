@@ -24,7 +24,8 @@ Events::Events(QWidget *parent) : QDialog(parent),
     {
         int counter = -1;
         fstream newfile;
-        string counter_Address = "C:/Users/User/OneDrive - National University of Sciences & Technology/Uni STUDY/Semester 2/OOP/OOP Proj/NOTEPAD 2/NOTEPAD-QT/SampleEvents/counter.txt";
+        string current_path = QDir::currentPath().toStdString();
+        string counter_Address = current_path + "/SampleEvents/counter.txt";
         // opens counter.txt where the counter exists for filename
         newfile.open(counter_Address, ios::in); //open counter to perform read
         if (newfile.is_open())
@@ -34,7 +35,7 @@ Events::Events(QWidget *parent) : QDialog(parent),
             counter = stoi(tp);
             newfile.close(); //close the file object.
         }
-        string Address = "C:/Users/User/OneDrive - National University of Sciences & Technology/Uni STUDY/Semester 2/OOP/OOP Proj/NOTEPAD 2/NOTEPAD-QT/SampleEvents/" + to_string(counter) + ".txt";
+        string Address = current_path + "/SampleEvents/" + to_string(counter) + ".txt";
         newfile.open(Address, ios::in);
         string tp;
         if (newfile.is_open())
@@ -65,7 +66,8 @@ void Events::on_pushButton_clicked()
     int counter = -1;
     fstream newfile;
     fstream fout;
-    string counter_Address = "C:/Users/User/OneDrive - National University of Sciences & Technology/Uni STUDY/Semester 2/OOP/OOP Proj/NOTEPAD 2/NOTEPAD-QT/SampleEvents/counter.txt";
+    string current_path = QDir::currentPath().toStdString();
+    string counter_Address = current_path + "/SampleEvents/counter.txt";
     // opens counter.txt where the counter exists for filename
     newfile.open(counter_Address, ios::in); //open counter to perform read
     if (newfile.is_open())
@@ -83,7 +85,7 @@ void Events::on_pushButton_clicked()
     }
 
     // writing event in file
-    string Address = "C:/Users/User/OneDrive - National University of Sciences & Technology/Uni STUDY/Semester 2/OOP/OOP Proj/NOTEPAD 2/NOTEPAD-QT/SampleEvents/" + to_string(counter + 1) + ".txt";
+    string Address = current_path + "/SampleEvents/" + to_string(counter) + ".txt";
     fout.open(Address, ios::out);
 
     // Insert the data to file
@@ -91,32 +93,4 @@ void Events::on_pushButton_clicked()
     //        qDebug() << Data;
     string strData = Data.toStdString();
     fout << strData;
-
-    /*
-        temp_string = ""; final_string = "";
-        string Prev_File_Add = "C:/Users/User/OneDrive - National University of Sciences & Technology/Uni STUDY/Semester 2/OOP/OOP Proj/NOTEPAD 2/NOTEPAD-QT/Sample Events/" + to_string(counter - 1) + ".txt";
-        QFile inputFile2(QString::fromStdString(Prev_File_Add));
-        if (inputFile2.open(QIODevice::ReadOnly))
-        {
-           QTextStream in(&inputFile2);
-           while (!in.atEnd())  // indicating unitl not EOF
-           {
-              QString line = in.readLine();
-              final_string += line.toStdString();
-           }
-        }
-
-        string prev_note_string = final_string;
-
-        // we'll put the previous note which will be counter - 1 .txt
-        if (counter < 2){
-             ui->Previous_Event->setPlainText("***NO PREVIOUS NOTES***");
-        }
-        else {
-            ui->Previous_Event->setPlainText(QString::fromStdString(prev_note_string));
-        }
-
-
-        QString Prev_Data = ui->Previous_Event->toPlainText();
-*/
 }

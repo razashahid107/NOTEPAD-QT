@@ -71,9 +71,10 @@ void MainWindow::on_pushButton_Login_clicked()
             if (username == str_Username){
                 check = true;
                 if(password == str_password){
+                    this->hide();
                     DashBoard dsb;
                     dsb.setModal(true);
-                    this->hide();
+                    dsb.exec();
                 }
                 else{
                     ui->label_2->setText("Wrong Password");
@@ -102,8 +103,7 @@ void MainWindow::on_pushButton_Login_clicked()
 void MainWindow::on_pushButton_clicked()
 {
     hide();
-    Register *mui;
-    mui = new Register(this);
-    mui->show();
-    this->hide();
+    Register mui;
+    mui.setModal(true);
+    mui.exec();
 }

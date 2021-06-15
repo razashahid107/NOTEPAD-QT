@@ -87,10 +87,10 @@ void Register::on_Register_button_2_clicked()
         dbh = new DatabaseHandler(this);
         dbh->DataEntry(qfname, qsname, qusername, qpassword);
         myfile.close();
+        this->hide();
         Welcome nui;
         nui.setModal(true);
         nui.exec();
-        this->hide();
     }
 }
 
