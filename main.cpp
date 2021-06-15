@@ -1,11 +1,21 @@
 #include "initialscr.h"
+#include "mythread.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Initialscr w;
-    w.show();
+    MyThread mthread;
+    mthread.start();
+    QDir qdirectory;
+    fstream myfile;
+    QString qtfilename = qdirectory.currentPath() + "/login.csv";
+    qdirectory.remove(qtfilename);
+    DatabaseHandler *dbh = new DatabaseHandler();
+    dbh->display();
+    Initialscr iui;
+    iui.show();
     return a.exec();
+    delete dbh;
 }
