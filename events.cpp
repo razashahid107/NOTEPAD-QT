@@ -6,6 +6,7 @@ Events::Events(QWidget *parent) :
     ui(new Ui::Events)
 {
     ui->setupUi(this);
+    ui->Current_Event->setPlaceholderText("Add a New Note");
 }
 
 Events::~Events()

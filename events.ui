@@ -77,7 +77,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>New Event</string>
+    <string>Add Event</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
