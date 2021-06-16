@@ -2,6 +2,8 @@
 #include "ui_events.h"
 #include <QDebug>
 #include <QDir>
+#include<stdio.h>
+#include<stdlib.h>
 Events::Events(QWidget *parent) : QDialog(parent),
                                   ui(new Ui::Events)
 {
@@ -135,13 +137,44 @@ void Events::on_pushButton_2_clicked()
     string Address = current_path + "/" + to_string(counter - 1) + ".txt";
     fstream myfile;
     newfile.open(Address, ios::out);
-    if (newfile.is_open()){
+    if (newfile.is_open())
+    {
         QString tp = ui->Current_Event->toPlainText();
         newfile << tp.toStdString();
         newfile.close();
     }
+}
 
 
 
+
+void Events::on_pushButton_3_clicked()
+{
+    fstream newfile;
+    int counter = -1;
+    string current_path = QDir::currentPath().toStdString() + "/SampleEvents";
+    string counter_Address = current_path + "/counter.txt";
+    // opens counter.txt where the counter exists for filename
+    newfile.open(counter_Address, ios::out); //open counter to perform read
+    if (newfile.is_open())
+    { //checking whether the file is open
+        string tp;
+        getline(newfile, tp); //read num from counter and open tht number file.txt
+        counter = stoi(tp);
+        counter--;
+        newfile << to_string(counter);
+        newfile.close(); //close the file object.
+    }
+    string Address = current_path + "/" + to_string(counter) + ".txt";
+    QString x = QString::fromStdString(Address);
+    QFile file (x);
+    file.remove();
+    newfile.open(Address, ios::out);
+    if (newfile.is_open())
+    {
+        QString tp = ui->Current_Event->toPlainText();
+        newfile << tp.toStdString();
+        newfile.close();
+    }
 }
 
