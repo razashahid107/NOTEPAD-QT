@@ -1,16 +1,30 @@
 #include "events.h"
 #include "ui_events.h"
 #include <QDebug>
-
+#include <QDir>
 Events::Events(QWidget *parent) : QDialog(parent),
                                   ui(new Ui::Events)
 {
     ui->setupUi(this);
     this->setWindowTitle("Events");
     ui->Current_Event->setPlaceholderText("Add a New Event");
-    QString path = "C:/Users/User/OneDrive - National University of Sciences & Technology/Uni STUDY/Semester 2/OOP/OOP Proj/NOTEPAD 2/NOTEPAD-QT/SampleEvents"; // assume it is some path
+//    QString path = "C:/Users/User/OneDrive - National University of Sciences & Technology/Uni STUDY/Semester 2/OOP/OOP Proj/NOTEPAD 2/NOTEPAD-QT/SampleEvents"; // assume it is some path
+    QString path = QDir::currentPath();
+    qDebug() << "PATH:     " << path;
+    QFile _file( path );
+    QDir _dir;
 
-    QDir dir(path);
+    // check if "scripts" folder exists
+    int _dirExists = _dir.exists(  "SampleEvents" );
+    // if not, create it
+    if( !_dirExists )
+        _dir.mkdir( "SampleEvents" );
+
+//    QString finalPath = QDir(QDir::currentPath()).filePath("/SampleEvents");
+    QString latest_path = QDir::currentPath() + "/SampleEvents";
+    qDebug() << "Latest Path: " << latest_path;
+
+    QDir dir(latest_path);
     dir.setFilter(QDir::AllEntries | QDir::NoDotAndDotDot);
     int total_files = dir.count();
     qDebug() << "total files: " << total_files;
@@ -24,8 +38,9 @@ Events::Events(QWidget *parent) : QDialog(parent),
     {
         int counter = -1;
         fstream newfile;
-        string current_path = QDir::currentPath().toStdString();
-        string counter_Address = current_path + "/SampleEvents/counter.txt";
+        string current_path = QDir::currentPath().toStdString() + "/SampleEvents";
+
+        string counter_Address = current_path + "/counter.txt";
         // opens counter.txt where the counter exists for filename
         newfile.open(counter_Address, ios::in); //open counter to perform read
         if (newfile.is_open())
@@ -35,7 +50,7 @@ Events::Events(QWidget *parent) : QDialog(parent),
             counter = stoi(tp);
             newfile.close(); //close the file object.
         }
-        string Address = current_path + "/SampleEvents/" + to_string(counter) + ".txt";
+        string Address = current_path  + to_string(counter) + ".txt";
         newfile.open(Address, ios::in);
         string tp;
         if (newfile.is_open())

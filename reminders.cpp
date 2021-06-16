@@ -1,6 +1,9 @@
 #include "reminders.h"
 #include "ui_reminders.h"
 #include <QDesktopServices>
+#include <QFile>
+#include <QDataStream>
+#include <QDir>
 
 Reminders::Reminders(QWidget *parent) :
     QDialog(parent),
@@ -17,6 +20,28 @@ Reminders::Reminders(QWidget *parent) :
     QString qtfilename = qdirectory.currentPath() + "/initialscrcheck.csv";
     string filename = qtfilename.toStdString();
     Login lg;
+    myfile.open(filename, ios::in);
+//    QFile file(qtfilename);
+//    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+//        return;
+
+//    while (!file.atEnd()) {
+//        QByteArray line = file.readLine();
+//        process_line(line);
+//    }
+//    QFile inputFile(qtfilename);
+//    if (inputFile.open(QIODevice::ReadOnly))
+//    {
+//       QTextStream in(&inputFile);
+//       while (!in.atEnd())
+//       {
+//          getline(myfile, username, ',');
+
+//          QString line = QString::fromStdString(username);//.readLine();
+//       }
+//       inputFile.close();
+//    }
+
     myfile.open(filename, ios::in);
     getline(myfile, username, ',');
     username = lg.decrypt(username);
