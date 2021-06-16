@@ -37,7 +37,7 @@
   <widget class="QPlainTextEdit" name="Current_Event">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>140</x>
      <y>100</y>
      <width>469</width>
      <height>71</height>
@@ -47,7 +47,7 @@
   <widget class="QPlainTextEdit" name="label_2">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>140</x>
      <y>180</y>
      <width>469</width>
      <height>81</height>
@@ -59,12 +59,12 @@
     <rect>
      <x>10</x>
      <y>140</y>
-     <width>101</width>
+     <width>111</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>Edit Event</string>
+    <string>Replace Prev Event</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
@@ -72,12 +72,12 @@
     <rect>
      <x>10</x>
      <y>100</y>
-     <width>101</width>
+     <width>111</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>Add Event</string>
+    <string>Add New Event</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
@@ -85,12 +85,12 @@
     <rect>
      <x>10</x>
      <y>180</y>
-     <width>101</width>
+     <width>111</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>Delete Event</string>
+    <string>Delete Prev Event</string>
    </property>
   </widget>
  </widget>

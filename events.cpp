@@ -50,17 +50,24 @@ Events::Events(QWidget *parent) : QDialog(parent),
             counter = stoi(tp);
             newfile.close(); //close the file object.
         }
-        string Address = current_path  + to_string(counter) + ".txt";
-        newfile.open(Address, ios::in);
+        string Address = latest_path.toStdString()  + "/" + to_string(counter - 1) + ".txt";
+        qDebug() << " Address :" << QString::fromStdString((Address));
+        fstream myfile;
+        myfile.open(Address, ios::in);
         string tp;
-        if (newfile.is_open())
+        if (myfile.is_open())
         {
-            while (getline(newfile, tp))
+            while (getline(myfile, tp))
             {             //read data from file object and put it into string.
-                tp += tp; //print the data of the string
+                tp += tp;
             }
+            qDebug() << "string loaded " << QString::fromStdString((tp));
+
             ui->label_2->setPlainText(QString::fromStdString((tp)));
+            myfile.close();
         }
+
+
     }
 }
 
@@ -109,3 +116,32 @@ void Events::on_pushButton_clicked()
     string strData = Data.toStdString();
     fout << strData;
 }
+
+void Events::on_pushButton_2_clicked()
+{
+    fstream newfile;
+    int counter = -1;
+    string current_path = QDir::currentPath().toStdString() + "/SampleEvents";
+    string counter_Address = current_path + "/counter.txt";
+    // opens counter.txt where the counter exists for filename
+    newfile.open(counter_Address, ios::in); //open counter to perform read
+    if (newfile.is_open())
+    { //checking whether the file is open
+        string tp;
+        getline(newfile, tp); //read num from counter and open tht number file.txt
+        counter = stoi(tp);
+        newfile.close(); //close the file object.
+    }
+    string Address = current_path + "/" + to_string(counter - 1) + ".txt";
+    fstream myfile;
+    newfile.open(Address, ios::out);
+    if (newfile.is_open()){
+        QString tp = ui->Current_Event->toPlainText();
+        newfile << tp.toStdString();
+        newfile.close();
+    }
+
+
+
+}
+

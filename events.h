@@ -20,8 +20,7 @@ private slots:
     void on_reminderTitle_blockCountChanged(int newBlockCount);
 
     void on_pushButton_clicked();
-
-
+    void on_pushButton_2_clicked();
 
 private:
     static int counter;
