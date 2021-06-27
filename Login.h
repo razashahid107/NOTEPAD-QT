@@ -4,7 +4,6 @@
 #include <vector>
 #include <iomanip>
 #include <stdlib.h>
-#include <conio.h>
 #include <qmessagebox.h>
 #include "mainwindow.h"
 #include "databasehandler.h"

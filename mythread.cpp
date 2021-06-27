@@ -1,5 +1,4 @@
 #include <QtCore/QCoreApplication>
-#include <windows.h>
 #include <QMessageBox>
 #include "mythread.h"
 
@@ -85,7 +84,7 @@ void MyThread::run()
                 if (idate == QDate::currentDate().day()){
                     if (ihour == QTime::currentTime().hour()){
                         if (QString::number(imin) == QString::number(QTime::currentTime().minute())){
-                            Beep(523,500);
+//                            Beep(523,500);
                             sleep(5);
                         }
                     }
