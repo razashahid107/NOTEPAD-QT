@@ -89,14 +89,12 @@ void Reminders::on_save_pushButton_clicked()
         QJsonDocument  docs = QJsonDocument::fromVariant(newEntry);
         string strURL = "https://practice-e90c6-default-rtdb.firebaseio.com/Reminders/" + username + "/" + Number +".json";
         Login lg;
-        int num = stoi(Number);
+        int num;
+        std::istringstream(Number) >> num;
         lg.setremainderno(username, num);
-        QDir qdirec2;
-        string Number2;
+        qDebug() << QString::fromStdString(username);
         fstream myfile;
-        QString qtfilename = qdirec2.currentPath() + "/number.txt";
-        string filename = qtfilename.toStdString();
-        myfile.open(filename, ios::out);
+        myfile.open(filename2, ios::out);
         if (myfile.is_open()){
             myfile << num +1;
             QString URL = QString::fromStdString(strURL);
@@ -120,6 +118,11 @@ void Reminders::on_save_pushButton_clicked()
                 ui->reminderBody->clear();
             }
         }
+    }
+    else {
+        ui->saving_msg->setText("Note not Saved");
+        ui->reminderTitle->clear();
+        ui->reminderBody->clear();
     }
 }
 
