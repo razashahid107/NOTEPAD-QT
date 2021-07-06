@@ -20,7 +20,6 @@ Reminders::Reminders(QWidget *parent) :
     QString qtfilename = qdirectory.currentPath() + "/initialscrcheck.csv";
     string filename = qtfilename.toStdString();
     Login lg;
-    myfile.open(filename, ios::in);
 //    QFile file(qtfilename);
 //    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
 //        return;
@@ -134,115 +133,125 @@ void Reminders::ReadReminders()
     QString qtfilename = qdirectory.currentPath() + "/Reminders.csv";
     string filename = qtfilename.toStdString();
     myfile.open(filename, ios::out);
-    string strfirebaseReminders = firebaseReminders.toStdString();
-    for (int i = 0; i < strfirebaseReminders.length(); i++)
-    {
-        if (strfirebaseReminders[i] == '{')
+    if(myfile.is_open()){
+        string strfirebaseReminders = firebaseReminders.toStdString();
+        for (int i = 0; i < strfirebaseReminders.length(); i++)
         {
-            strfirebaseReminders[i] = ' ';
+            if (strfirebaseReminders[i] == '{')
+            {
+                strfirebaseReminders[i] = ' ';
+            }
+            else if (strfirebaseReminders[i] == '[')
+            {
+                strfirebaseReminders[i] = ' ';
+            }
+            else if (strfirebaseReminders[i] == ']')
+            {
+                strfirebaseReminders[i] = '\n';
+            }
+            else if (strfirebaseReminders[i] == ':')
+            {
+                strfirebaseReminders[i] = ',';
+            }
+            else if (strfirebaseReminders[i] == '}' && strfirebaseReminders[i + 1] == ',')
+            {
+                strfirebaseReminders[i] = '\n';
+                strfirebaseReminders[i + 1] = ' ';
+            }
+            else if (strfirebaseReminders[i] == '}' && strfirebaseReminders[i + 1] == '}')
+            {
+                strfirebaseReminders[i] = '\n';
+            }
+            else if (strfirebaseReminders[i] == '}')
+            {
+                strfirebaseReminders[i] = ',';
+            }
         }
-        else if (strfirebaseReminders[i] == '[')
-        {
-            strfirebaseReminders[i] = ' ';
-        }
-        else if (strfirebaseReminders[i] == ']')
-        {
-            strfirebaseReminders[i] = '\n';
-        }
-        else if (strfirebaseReminders[i] == ':')
-        {
-            strfirebaseReminders[i] = ',';
-        }
-        else if (strfirebaseReminders[i] == '}' && strfirebaseReminders[i + 1] == ',')
-        {
-            strfirebaseReminders[i] = '\n';
-            strfirebaseReminders[i + 1] = ' ';
-        }
-        else if (strfirebaseReminders[i] == '}' && strfirebaseReminders[i + 1] == '}')
-        {
-            strfirebaseReminders[i] = '\n';
-        }
-        else if (strfirebaseReminders[i] == '}')
-        {
-            strfirebaseReminders[i] = ',';
-        }
+        myfile << strfirebaseReminders;
+        myfile.close();
     }
-    myfile << strfirebaseReminders;
-    myfile.close();
+    else {
+        //writ some code
+    }
 }
 
 void Reminders::on_exit_pushButton_clicked()
 {
-    ui->reminderdisplay->clear();
-    Reminders rmd;
-    string line, username, temp, garbage, month, date, hour, minute, body, title;
-    vector<string> vbody;
-    vector<string> vtitle;
-    vector<string> vmonth;
-    vector<string> vdate;
-    vector<string> vhour;
-    vector<string> vmin;
-    bool check = false;
     QDir qdirectory2;
     fstream myfile2;
     QString qtfilename2 = qdirectory2.currentPath() + "/Reminders.csv";
     string filename2 = qtfilename2.toStdString();
     myfile2.open(filename2, ios::in);
-    stringstream s(line);
-    while (getline(myfile2, garbage, ',') && check == false) {
-        getline(myfile2, body, ',');
-        for (int i = 0; i < body.length(); i++)
-        {
-            if (body[i] == '"')
-                body[i] = ' ';
+    if (myfile2.is_open()){
+        ui->reminderdisplay->clear();
+        Reminders rmd;
+        string line, username, temp, garbage, month, date, hour, minute, body, title;
+        vector<string> vbody;
+        vector<string> vtitle;
+        vector<string> vmonth;
+        vector<string> vdate;
+        vector<string> vhour;
+        vector<string> vmin;
+        bool check = false;
+        stringstream s(line);
+        while (getline(myfile2, garbage, ',') && check == false) {
+            getline(myfile2, body, ',');
+            for (int i = 0; i < body.length(); i++)
+            {
+                if (body[i] == '"')
+                    body[i] = ' ';
+            }
+            vbody.push_back(body);
+            getline(myfile2, garbage, ',');
+            getline(myfile2, date, ',');
+            for (int i = 0; i < date.length(); i++)
+            {
+                if (date[i] == '"')
+                    date[i] = ' ';
+            }
+            vdate.push_back(date);
+            getline(myfile2, garbage, ',');
+            getline(myfile2, hour, ',');
+            for (int i = 0; i < hour.length(); i++)
+            {
+                 if (hour[i] == '"')
+                    hour[i] = ' ';
+            }
+            vhour.push_back(hour);
+            getline(myfile2, garbage, ',');
+            getline(myfile2, minute, ',');
+            for (int i = 0; i < minute.length(); i++)
+            {
+                 if (minute[i] == '"')
+                    minute[i] = ' ';
+            }
+            vmin.push_back(minute);
+            getline(myfile2, garbage, ',');
+            getline(myfile2, month, ',');
+            for (int i = 0; i < month.length(); i++)
+            {
+                if (month[i] == '"')
+                    month[i] = ' ';
+            }
+            vmonth.push_back(month);
+            getline(myfile2, garbage, ',');
+            getline(myfile2, title, ',');
+            for (int i = 0; i < title.length(); i++)
+            {
+                if (title[i] == '"')
+                    title[i] = ' ';
+            }
+            vtitle.push_back(title);
+            getline(myfile2, garbage, ',');
+            getline(myfile2, garbage, '\n');
         }
-        vbody.push_back(body);
-        getline(myfile2, garbage, ',');
-        getline(myfile2, date, ',');
-        for (int i = 0; i < date.length(); i++)
-        {
-            if (date[i] == '"')
-                date[i] = ' ';
+        for (int i = 0; i < vtitle.size(); i++){
+        ui->reminderdisplay->appendPlainText(QString::number(i+1) + ".\n" + "Date: " + QString::fromStdString(vdate[i]) + "/" + QString::fromStdString(vmonth[i]) + "/ 2021" + "\tTime:" + QString::fromStdString(vhour[i]) + ":" + QString::fromStdString(vmin[i]) + ": 00" + "\nTitle:" + QString::fromStdString(vtitle[i]) + "\nReminder:" + QString::fromStdString(vbody[i]) + "\n\n");
+        myfile2.close();
         }
-        vdate.push_back(date);
-        getline(myfile2, garbage, ',');
-        getline(myfile2, hour, ',');
-        for (int i = 0; i < hour.length(); i++)
-        {
-             if (hour[i] == '"')
-                hour[i] = ' ';
-        }
-        vhour.push_back(hour);
-        getline(myfile2, garbage, ',');
-        getline(myfile2, minute, ',');
-        for (int i = 0; i < minute.length(); i++)
-        {
-             if (minute[i] == '"')
-                minute[i] = ' ';
-        }
-        vmin.push_back(minute);
-        getline(myfile2, garbage, ',');
-        getline(myfile2, month, ',');
-        for (int i = 0; i < month.length(); i++)
-        {
-            if (month[i] == '"')
-                month[i] = ' ';
-        }
-        vmonth.push_back(month);
-        getline(myfile2, garbage, ',');
-        getline(myfile2, title, ',');
-        for (int i = 0; i < title.length(); i++)
-        {
-            if (title[i] == '"')
-                title[i] = ' ';
-        }
-        vtitle.push_back(title);
-        getline(myfile2, garbage, ',');
-        getline(myfile2, garbage, '\n');
     }
-    for (int i = 0; i < vtitle.size(); i++){
-    ui->reminderdisplay->appendPlainText(QString::number(i+1) + ".\n" + "Date: " + QString::fromStdString(vdate[i]) + "/" + QString::fromStdString(vmonth[i]) + "/ 2021" + "\tTime:" + QString::fromStdString(vhour[i]) + ":" + QString::fromStdString(vmin[i]) + ": 00" + "\nTitle:" + QString::fromStdString(vtitle[i]) + "\nReminder:" + QString::fromStdString(vbody[i]) + "\n\n");
-    myfile2.close();
+    else{
+        ui->reminderdisplay->appendPlainText("File not Found or No Reminders Yet.");
     }
 }
 
